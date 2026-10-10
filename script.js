@@ -223,6 +223,116 @@ const loadSiteContent = async () => {
   return { posts, pages };
 };
 
+const loadFantasyStats = async () => {
+  const card = document.getElementById('fantasy-snapshot');
+  if (!card) {
+    return;
+  }
+
+  const status = document.getElementById('sleeper-refresh-status');
+  try {
+    const response = await fetch('data/fantasy-stats.json');
+    if (!response.ok) {
+      throw new Error(`Fantasy stats request failed with status ${response.status}.`);
+    }
+
+    const stats = await response.json();
+    const sleeper = stats.sleeper;
+    const updatedAt = new Date(stats.updatedAt);
+    if (!sleeper || Number.isNaN(updatedAt.getTime())) {
+      throw new Error('The published fantasy stats are incomplete.');
+    }
+
+    document.getElementById('sleeper-updated').textContent =
+      `Sleeper · updated ${new Intl.DateTimeFormat(undefined, {
+        dateStyle: 'medium'
+      }).format(updatedAt)}`;
+    document.getElementById('sleeper-league-name').textContent =
+      sleeper.leagueName;
+    document.getElementById('sleeper-team').textContent =
+      `${sleeper.totalTeams}-team dynasty · ${sleeper.teamName} · @${sleeper.username}`;
+    document.getElementById('sleeper-record').textContent =
+      `${sleeper.wins}–${sleeper.losses}${sleeper.ties ? `–${sleeper.ties}` : ''}`;
+    document.getElementById('sleeper-points').textContent =
+      Number(sleeper.pointsFor).toFixed(1);
+    document.getElementById('sleeper-week').textContent = sleeper.week;
+    document.getElementById('sleeper-size').textContent =
+      `${sleeper.totalTeams} teams`;
+    document.getElementById('sleeper-matchup').textContent = sleeper.matchup
+      ? `Week ${sleeper.week}: ${sleeper.matchup.teamName} ${Number(
+          sleeper.matchup.points
+        ).toFixed(1)} – ${Number(sleeper.matchup.opponentPoints).toFixed(1)} ${
+          sleeper.matchup.opponentName
+        }.`
+      : `Week ${sleeper.week} matchup details are not available yet.`;
+    status.textContent = '';
+  } catch (error) {
+    console.error('Unable to load scheduled fantasy football stats:', error);
+    status.textContent =
+      'The latest scheduled update could not be loaded; showing the last published stats.';
+  }
+};
+
+const loadGolfScorecards = async () => {
+  const list = document.getElementById('golf-round-list');
+  if (!list) {
+    return;
+  }
+
+  const summary = document.getElementById('golf-round-summary');
+  const error = document.getElementById('golf-round-error');
+  try {
+    const response = await fetch('data/golf-scorecards.json');
+    if (!response.ok) {
+      throw new Error(
+        `Golf scorecards request failed with status ${response.status}.`
+      );
+    }
+
+    const rounds = await response.json();
+    if (
+      !Array.isArray(rounds) ||
+      rounds.some(
+        (round) =>
+          typeof round.date !== 'string' ||
+          typeof round.course !== 'string' ||
+          !Number.isInteger(round.score) ||
+          typeof round.toPar !== 'string'
+      )
+    ) {
+      throw new Error('The published golf scorecards are invalid.');
+    }
+
+    const fragment = document.createDocumentFragment();
+    rounds.forEach((round) => {
+      const item = document.createElement('li');
+      item.className = 'golf-round';
+
+      const details = document.createElement('span');
+      details.className = 'golf-round-details';
+      const date = document.createElement('strong');
+      date.textContent = round.date;
+      const course = document.createElement('span');
+      course.textContent = round.course;
+      details.append(date, course);
+
+      const score = document.createElement('strong');
+      score.className = 'golf-round-score';
+      score.textContent = `${round.score} (${round.toPar})`;
+      item.append(details, score);
+      fragment.append(item);
+    });
+    list.replaceChildren(fragment);
+    summary.textContent =
+      `${rounds.length} rounds with recorded scores. Two unscored scorecards were omitted.`;
+    error.textContent = '';
+  } catch (loadError) {
+    console.error('Unable to load Garmin golf scorecards:', loadError);
+    summary.textContent = '';
+    error.textContent = 'The Garmin scorecards could not be loaded.';
+  }
+};
+
 const postList = document.getElementById('post-list');
 const featuredPostList = document.getElementById('featured-posts');
 const blogSearch = document.getElementById('post-search');
@@ -230,6 +340,9 @@ const categoryFilter = document.getElementById('post-category-filter');
 const postResults = document.getElementById('post-results');
 const postDetail = document.getElementById('post-detail');
 const pageDetail = document.getElementById('page-detail');
+
+loadFantasyStats();
+loadGolfScorecards();
 
 loadSiteContent()
   .then(({ posts, pages }) => {

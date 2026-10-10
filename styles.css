@@ -286,6 +286,192 @@ h1 {
   text-decoration: underline;
 }
 
+.interest-details {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  margin-top: 24px;
+}
+
+.interest-detail-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  display: none;
+  min-width: 0;
+  padding: 22px;
+}
+
+.interest-detail-card:target {
+  display: block;
+}
+
+.interest-detail-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+
+.race-result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.race-result {
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 9px 0;
+}
+
+.race-result:last-child {
+  border-bottom: 0;
+}
+
+.golf-round {
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.golf-round:last-child {
+  border-bottom: 0;
+}
+
+.golf-round-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.golf-round-details strong,
+.golf-round-score {
+  color: var(--accent);
+}
+
+.golf-round-score {
+  flex: 0 0 auto;
+}
+
+.platform-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.platform-list li {
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.platform-list li:last-child {
+  border-bottom: 0;
+}
+
+.platform-list a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.platform-list a:hover {
+  text-decoration: underline;
+}
+
+.platform-list li > span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.golf-handicap {
+  align-items: baseline;
+  background: rgba(244, 185, 66, 0.08);
+  border: 1px solid rgba(244, 185, 66, 0.22);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0 0 14px;
+  padding: 12px 14px;
+}
+
+.golf-handicap-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.golf-handicap > strong {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.golf-handicap-method {
+  color: var(--muted);
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.race-result > :last-child {
+  color: var(--accent);
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.stats-source,
+.snapshot-team {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stats-source {
+  margin: 14px 0 0;
+}
+
+.stats-source a {
+  color: var(--primary);
+}
+
+.snapshot-team {
+  margin: -4px 0 16px;
+}
+
+.snapshot-stats {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.snapshot-stats div {
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.snapshot-stats dt {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.snapshot-stats dd {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 4px 0 0;
+}
+
 .category-card,
 .post-card {
   background: rgba(255, 255, 255, 0.03);
@@ -373,6 +559,15 @@ h1 {
 
   .post-card {
     min-height: 0;
+  }
+
+  .race-result {
+    align-items: flex-start;
+    font-size: 0.9rem;
+  }
+
+  .interest-detail-card {
+    padding: 18px;
   }
 
   .button {

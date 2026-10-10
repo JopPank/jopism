@@ -1,0 +1,36 @@
+name: Refresh weekly fantasy stats
+
+on:
+  schedule:
+    - cron: '0 14 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Refresh Sleeper stats
+        shell: pwsh
+        run: ./scripts/refresh-fantasy-stats.ps1
+
+      - name: Publish updated stats
+        shell: pwsh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/fantasy-stats.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host 'Fantasy stats are unchanged.'
+            exit 0
+          }
+          git commit -m 'Refresh weekly fantasy stats' -m 'Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>'
+          if ($LASTEXITCODE -ne 0) { throw 'Could not commit refreshed fantasy stats.' }
+          git push
+          if ($LASTEXITCODE -ne 0) { throw 'Could not publish refreshed fantasy stats.' }

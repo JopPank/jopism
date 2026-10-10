@@ -78,29 +78,180 @@
               <p class="interest-label">Endurance</p>
               <h3>Triathlon</h3>
               <p>Swim, bike, run: training, race days, and lessons along the way.</p>
-              <span class="interest-note">More to come</span>
+              <a class="interest-link" href="#triathlon-results"
+                >See race results <span aria-hidden="true">→</span></a
+              >
             </article>
             <article class="interest-card">
               <p class="interest-label">On the course</p>
               <h3>Golf</h3>
-              <p>Rounds, courses, and the occasional thought about the game.</p>
-              <a
-                class="interest-link"
-                href="post.html?slug=tiger-woods-posts-video-showing-that-maybe-he-isnt-old-and-fucked-up"
-                >From the archive: Tiger Woods <span aria-hidden="true">→</span></a
+              <p>Rounds, courses, and stats from my activity history.</p>
+              <a class="interest-link" href="#golf-activities"
+                >See golf activities <span aria-hidden="true">→</span></a
               >
             </article>
             <article class="interest-card">
               <p class="interest-label">Game day</p>
               <h3>Fantasy Football</h3>
               <p>Draft picks, lineup calls, waiver moves, and weekly surprises.</p>
-              <span class="interest-note">More to come</span>
+              <a class="interest-link" href="#fantasy-snapshot"
+                >See a Sleeper snapshot <span aria-hidden="true">→</span></a
+              >
             </article>
             <article class="interest-card">
               <p class="interest-label">At the table</p>
               <h3>Dungeons &amp; Dragons</h3>
-              <p>Characters, campaigns, world-building, and shared adventures.</p>
-              <span class="interest-note">More to come</span>
+              <p>Campaigns played online with friends, from character sheets to game night.</p>
+              <a class="interest-link" href="#dnd-setup"
+                >How we play <span aria-hidden="true">→</span></a
+              >
+            </article>
+          </div>
+          <div class="interest-details" aria-live="polite">
+            <article id="dnd-setup" class="interest-detail-card">
+              <p class="interest-label">At the table</p>
+              <h3>My character: Vadrak Rochefort</h3>
+              <p>
+                Level 8 Hill Dwarf Fighter. A resilient front-line
+                combatant built to protect the rest of the party.
+              </p>
+              <dl class="snapshot-stats dnd-character-stats">
+                <div>
+                  <dt>Armor class</dt>
+                  <dd>20</dd>
+                </div>
+                <div>
+                  <dt>Max hit points</dt>
+                  <dd>84</dd>
+                </div>
+                <div>
+                  <dt>Walking speed</dt>
+                  <dd>30 ft.</dd>
+                </div>
+                <div>
+                  <dt>Strength</dt>
+                  <dd>18</dd>
+                </div>
+              </dl>
+              <p class="stats-source">
+                <a
+                  href="https://www.dndbeyond.com/characters/163187913/v4gJzf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View Vadrak's D&amp;D Beyond character sheet
+                  <span aria-hidden="true">↗</span></a
+                >
+              </p>
+              <h4 class="dnd-table-heading">How we play</h4>
+              <p>
+                Our games bring together Discord for group chat and voice,
+                Roll20 for online sessions, and D&amp;D Beyond for character
+                sheets and campaign tools.
+              </p>
+              <ul class="platform-list">
+                <li>
+                  <a href="https://discord.com" target="_blank" rel="noopener noreferrer"
+                    >Discord <span aria-hidden="true">↗</span></a
+                  >
+                  <span>Chat and voice with the group</span>
+                </li>
+                <li>
+                  <a href="https://roll20.net" target="_blank" rel="noopener noreferrer"
+                    >Roll20 <span aria-hidden="true">↗</span></a
+                  >
+                  <span>Online tabletop sessions</span>
+                </li>
+                <li>
+                  <a href="https://www.dndbeyond.com" target="_blank" rel="noopener noreferrer"
+                    >D&amp;D Beyond <span aria-hidden="true">↗</span></a
+                  >
+                  <span>Characters and campaign resources</span>
+                </li>
+              </ul>
+            </article>
+            <article id="golf-activities" class="interest-detail-card">
+              <p class="interest-label">Garmin scorecards</p>
+              <h3>Golf rounds</h3>
+              <div class="golf-handicap" aria-label="Estimated golf handicap">
+                <span class="golf-handicap-label">Estimated handicap</span>
+                <strong>~3.1</strong>
+                <span class="golf-handicap-method">
+                  Approximation from the best 8 score-to-par results among the
+                  20 most recent scored full rounds; course ratings and slopes
+                  aren’t available, so this isn’t an official Handicap Index.
+                </span>
+              </div>
+              <p id="golf-round-summary" class="stats-source">
+                Loading scored rounds…
+              </p>
+              <ul id="golf-round-list" class="golf-round-list" aria-live="polite"></ul>
+              <p id="golf-round-error" class="stats-source" role="status"></p>
+            </article>
+            <article id="triathlon-results" class="interest-detail-card">
+              <p class="interest-label">Race results</p>
+              <h3>Triathlon</h3>
+              <ul class="race-result-list">
+                <li class="race-result">
+                  <span><strong>2026</strong> · 5150 Mont-Tremblant</span>
+                  <strong>3:28:45</strong>
+                </li>
+                <li class="race-result">
+                  <span><strong>2023</strong> · 5150 Mont-Tremblant</span>
+                  <strong>3:20:58</strong>
+                </li>
+                <li class="race-result">
+                  <span><strong>2022</strong> · 5150 Mont-Tremblant</span>
+                  <strong>3:32:22</strong>
+                </li>
+                <li class="race-result">
+                  <span><strong>2019</strong> · 5150 Mont-Tremblant</span>
+                  <strong>3:04:39</strong>
+                </li>
+                <li class="race-result">
+                  <span><strong>2023</strong> · Ottawa Early Bird Sprint</span>
+                  <strong>1:27:11</strong>
+                </li>
+                <li class="race-result">
+                  <span><strong>2022</strong> · Ottawa Early Bird Sprint</span>
+                  <strong>1:27:07</strong>
+                </li>
+              </ul>
+              <p class="stats-source">
+                <a href="https://sportstats.one/results/athlete/56041"
+                  >View full results on Sportstats <span aria-hidden="true">→</span></a
+                >
+              </p>
+            </article>
+            <article id="fantasy-snapshot" class="interest-detail-card">
+              <p id="sleeper-updated" class="interest-label">
+                Sleeper · refreshed weekly
+              </p>
+              <h3 id="sleeper-league-name">OF (only football)</h3>
+              <p id="sleeper-team" class="snapshot-team">
+                12-team dynasty · Defending Champ · @IJOPI
+              </p>
+              <dl id="sleeper-stats" class="snapshot-stats">
+                <div>
+                  <dt>Record</dt>
+                  <dd id="sleeper-record">2–2</dd>
+                </div>
+                <div>
+                  <dt>Points for</dt>
+                  <dd id="sleeper-points">550</dd>
+                </div>
+                <div>
+                  <dt>Current week</dt>
+                  <dd id="sleeper-week">5</dd>
+                </div>
+                <div>
+                  <dt>League size</dt>
+                  <dd id="sleeper-size">12 teams</dd>
+                </div>
+              </dl>
+              <p class="stats-source">
+                <span id="sleeper-matchup">Weekly matchup details load with the latest update.</span>
+                <span id="sleeper-refresh-status" role="status"></span>
+              </p>
             </article>
           </div>
         </div>

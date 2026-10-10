@@ -1,0 +1,23 @@
+﻿{
+    "updatedAt":  "2026-10-10T14:16:15.1139762Z",
+    "sleeper":  {
+                    "leagueId":  "1313612354184822784",
+                    "leagueName":  "OF (only football)",
+                    "leagueUrl":  "https://sleeper.com/leagues/1313612354184822784",
+                    "season":  2026,
+                    "week":  5,
+                    "username":  "ijopi",
+                    "teamName":  "Defending Champ",
+                    "totalTeams":  12,
+                    "wins":  2,
+                    "losses":  2,
+                    "ties":  0,
+                    "pointsFor":  550,
+                    "matchup":  {
+                                    "teamName":  "Defending Champ",
+                                    "points":  0,
+                                    "opponentName":  "Road To Glory ( Sos )",
+                                    "opponentPoints":  5.5
+                                }
+                }
+}
