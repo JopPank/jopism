@@ -287,6 +287,19 @@ h1 {
   background: rgba(220, 227, 221, 0.52);
 }
 
+.recent-writing-section {
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(61, 144, 73, 0.08), transparent 42rem),
+    #e8ede8;
+  border-block: 1px solid rgba(35, 68, 42, 0.08);
+}
+
+.interests-section {
+  background:
+    radial-gradient(ellipse at 92% 20%, rgba(99, 151, 75, 0.09), transparent 38rem),
+    #f5f7f3;
+}
+
 .home-about-card {
   align-items: center;
   background:
@@ -346,50 +359,66 @@ h1 {
 }
 
 .interest-card {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(57, 148, 68, 0.08), transparent 58%),
-    linear-gradient(145deg, #ffffff, #f4f7f4);
-  border: 1px solid var(--border);
+  --interest-accent: #31864a;
+  background: linear-gradient(160deg, #fff, #edf5ee);
+  border: 1px solid color-mix(in srgb, var(--interest-accent) 24%, white);
   border-radius: 16px;
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  min-height: 220px;
-  padding: 22px;
+  min-height: 370px;
+  overflow: hidden;
   position: relative;
   transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
   animation: tile-arrive 520ms both;
 }
 
 .interest-card:nth-child(2) {
-  background:
-    radial-gradient(circle at 0% 100%, rgba(102, 161, 68, 0.08), transparent 52%),
-    linear-gradient(145deg, #f9fbf8, #edf2ed);
+  --interest-accent: #b58436;
+  background: linear-gradient(160deg, #fffefa, #f7f0e3);
   animation-delay: 70ms;
 }
 
 .interest-card:nth-child(3) {
-  background:
-    radial-gradient(circle at 100% 100%, rgba(55, 139, 75, 0.08), transparent 54%),
-    linear-gradient(145deg, #ffffff, #f1f5f1);
+  --interest-accent: #526cb2;
+  background: linear-gradient(160deg, #fff, #edf1fa);
   animation-delay: 140ms;
 }
 
 .interest-card:nth-child(4) {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(123, 164, 55, 0.09), transparent 56%),
-    linear-gradient(145deg, #f8faf6, #edf2e9);
+  --interest-accent: #a9623f;
+  background: linear-gradient(160deg, #fff, #f8eee8);
   animation-delay: 210ms;
 }
 
 .interest-card:hover {
-  border-color: rgba(30, 126, 52, 0.4);
+  border-color: var(--interest-accent);
   box-shadow: 0 20px 42px rgba(31, 48, 35, 0.14), 0 0 22px rgba(35, 132, 55, 0.08);
   transform: translateY(-4px);
 }
 
+.interest-card-image {
+  aspect-ratio: 16 / 9;
+  background: color-mix(in srgb, var(--interest-accent) 12%, white);
+  display: block;
+  object-fit: cover;
+  transition: transform 300ms ease;
+  width: 100%;
+}
+
+.interest-card:hover .interest-card-image {
+  transform: scale(1.025);
+}
+
+.interest-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+}
+
 .interest-label {
-  color: var(--accent);
+  color: var(--interest-accent, var(--accent));
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -420,7 +449,7 @@ h1 {
 }
 
 .interest-link {
-  color: var(--primary);
+  color: var(--interest-accent, var(--primary));
   text-decoration: none;
 }
 
@@ -770,16 +799,9 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-#featured-posts .post-card:first-child {
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(59, 148, 69, 0.1), transparent 48%),
-    linear-gradient(145deg, #f5faf4, #eaf2e9);
-  min-height: 320px;
-  padding: 28px;
-}
-
-#featured-posts .post-card:first-child .thumb {
-  height: 190px;
+#featured-posts .post-card::before {
+  background: linear-gradient(90deg, var(--primary), transparent);
+  inset: 0 25% auto 0;
 }
 
 @keyframes tile-arrive {
@@ -878,6 +900,14 @@ h1 {
     padding: 36px 0;
   }
 
+  .interest-card {
+    min-height: 0;
+  }
+
+  .interest-card-image {
+    aspect-ratio: 16 / 8;
+  }
+
   .post-grid,
   .category-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -886,12 +916,6 @@ h1 {
 
   #featured-posts {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  #featured-posts .post-card:first-child {
-    grid-row: auto;
-    min-height: 280px;
-    padding: 20px;
   }
 
   .post-card {

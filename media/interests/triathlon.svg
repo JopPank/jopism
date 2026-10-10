@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Swim, bike, run</title>
+  <desc id="desc">A bright illustrated triathlon scene with a swimmer, cyclist, and runner.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#cceaf0"/>
+      <stop offset="1" stop-color="#f2f7e9"/>
+    </linearGradient>
+    <linearGradient id="water" x2="0" y2="1">
+      <stop stop-color="#43a9bd"/>
+      <stop offset="1" stop-color="#237b91"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="405" fill="url(#sky)"/>
+  <circle cx="585" cy="83" r="42" fill="#f4c66a"/>
+  <path d="M0 205 120 120l92 80 105-120 119 125 91-66 193 84v80H0Z" fill="#9fc8a1"/>
+  <path d="M0 235c110-21 171 20 278 0s172 15 269-2 126-4 173 2v170H0Z" fill="url(#water)"/>
+  <path d="M0 276c72-15 119 14 189 0s126 15 199 0 128 15 198 0 99-5 134 0M0 332c72-15 119 14 189 0s126 15 199 0 128 15 198 0 99-5 134 0" fill="none" stroke="#bde8df" stroke-linecap="round" stroke-width="7" opacity=".7"/>
+  <g transform="translate(92 136)" fill="none" stroke="#174b50" stroke-linecap="round" stroke-linejoin="round" stroke-width="11">
+    <path d="m0 15 49 1 37 21-27 15-31-10-21 10"/>
+    <circle cx="48" cy="0" r="18" fill="#efb47e" stroke="none"/>
+  </g>
+  <g transform="translate(310 249)" fill="none" stroke="#173f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+    <circle cx="0" cy="55" r="38"/>
+    <circle cx="126" cy="55" r="38"/>
+    <path d="m0 55 39-55 31 55H0l29-36h54l43 36M70 55l29-69h26"/>
+    <path d="m49 0 23-28m34 14 20-3"/>
+    <circle cx="76" cy="-43" r="13" fill="#e4a76f" stroke="none"/>
+  </g>
+  <g transform="translate(520 231)" fill="none" stroke="#fffaf0" stroke-linecap="round" stroke-linejoin="round" stroke-width="12">
+    <circle cx="27" cy="-37" r="16" fill="#e8ac70" stroke="none"/>
+    <path d="m23-16-23 47 37 7 18-35m-50 28L-7 72m45-34 32 30m-39-94 36 6 22 20"/>
+  </g>
+</svg>
