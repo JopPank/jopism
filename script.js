@@ -273,25 +273,25 @@ const loadFantasyStats = async () => {
   }
 };
 
-const loadGolfScorecards = async () => {
+const loadGolfRounds = async () => {
   const list = document.getElementById('golf-round-list');
   if (!list) {
     return;
   }
 
-  const summary = document.getElementById('golf-round-summary');
   const error = document.getElementById('golf-round-error');
   try {
-    const response = await fetch('data/golf-scorecards.json');
+    const response = await fetch('data/golf-recent-rounds.json');
     if (!response.ok) {
       throw new Error(
-        `Golf scorecards request failed with status ${response.status}.`
+        `Golf rounds request failed with status ${response.status}.`
       );
     }
 
     const rounds = await response.json();
     if (
       !Array.isArray(rounds) ||
+      rounds.length !== 15 ||
       rounds.some(
         (round) =>
           typeof round.date !== 'string' ||
@@ -300,7 +300,7 @@ const loadGolfScorecards = async () => {
           typeof round.toPar !== 'string'
       )
     ) {
-      throw new Error('The published golf scorecards are invalid.');
+      throw new Error('The published golf rounds are invalid.');
     }
 
     const fragment = document.createDocumentFragment();
@@ -318,18 +318,17 @@ const loadGolfScorecards = async () => {
 
       const score = document.createElement('strong');
       score.className = 'golf-round-score';
-      score.textContent = `${round.score} (${round.toPar})`;
+      score.textContent = `${round.score} (${round.toPar})${
+        round.score < 60 ? ' · 9 holes' : ''
+      }`;
       item.append(details, score);
       fragment.append(item);
     });
     list.replaceChildren(fragment);
-    summary.textContent =
-      `${rounds.length} rounds with recorded scores. Two unscored scorecards were omitted.`;
     error.textContent = '';
   } catch (loadError) {
-    console.error('Unable to load Garmin golf scorecards:', loadError);
-    summary.textContent = '';
-    error.textContent = 'The Garmin scorecards could not be loaded.';
+    console.error('Unable to load Garmin golf rounds:', loadError);
+    error.textContent = 'The Garmin golf rounds could not be loaded.';
   }
 };
 
@@ -342,7 +341,7 @@ const postDetail = document.getElementById('post-detail');
 const pageDetail = document.getElementById('page-detail');
 
 loadFantasyStats();
-loadGolfScorecards();
+loadGolfRounds();
 
 loadSiteContent()
   .then(({ posts, pages }) => {

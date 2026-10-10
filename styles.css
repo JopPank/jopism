@@ -312,6 +312,87 @@ h1 {
   margin: 0 0 14px;
 }
 
+.meal-photo-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  margin-top: 18px;
+}
+
+.kitchen-gear-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  margin-top: 18px;
+}
+
+.meal-photo-grid figure,
+.kitchen-gear-grid figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.meal-photo-grid img {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: block;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.kitchen-gear-heading {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.kitchen-gear-heading h4 {
+  margin: 0;
+}
+
+.kitchen-gear-grid img {
+  aspect-ratio: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  padding: 8px;
+  width: 100%;
+}
+
+.kitchen-gear-grid figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.kitchen-brand-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.kitchen-brand-logo {
+  display: block;
+  height: auto;
+  max-width: 160px;
+  width: 32vw;
+}
+
+.kitchen-gear-grid a,
+.kitchen-gear-list a {
+  color: var(--primary);
+}
+
+.kitchen-gear-list {
+  margin-bottom: 20px;
+}
+
 .race-result-list {
   list-style: none;
   margin: 0;
@@ -329,34 +410,6 @@ h1 {
 
 .race-result:last-child {
   border-bottom: 0;
-}
-
-.golf-round {
-  align-items: center;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  gap: 12px;
-  justify-content: space-between;
-  padding: 12px 0;
-}
-
-.golf-round:last-child {
-  border-bottom: 0;
-}
-
-.golf-round-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-}
-
-.golf-round-details strong,
-.golf-round-score {
-  color: var(--accent);
-}
-
-.golf-round-score {
-  flex: 0 0 auto;
 }
 
 .platform-list {
@@ -392,6 +445,41 @@ h1 {
 .platform-list li > span {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.golf-round-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.golf-round {
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.golf-round:last-child {
+  border-bottom: 0;
+}
+
+.golf-round-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.golf-round-details strong,
+.golf-round-score {
+  color: var(--accent);
+}
+
+.golf-round-score {
+  flex: 0 0 auto;
+  text-align: right;
 }
 
 .golf-handicap {

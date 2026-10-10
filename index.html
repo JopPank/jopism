@@ -85,9 +85,9 @@
             <article class="interest-card">
               <p class="interest-label">On the course</p>
               <h3>Golf</h3>
-              <p>Rounds, courses, and stats from my activity history.</p>
+              <p>A quick overview of my golf history.</p>
               <a class="interest-link" href="#golf-activities"
-                >See golf activities <span aria-hidden="true">→</span></a
+                >See golf summary <span aria-hidden="true">→</span></a
               >
             </article>
             <article class="interest-card">
@@ -106,8 +106,73 @@
                 >How we play <span aria-hidden="true">→</span></a
               >
             </article>
+            <article class="interest-card">
+              <p class="interest-label">In the kitchen</p>
+              <h3>Cooking</h3>
+              <p>Recipes, experiments, and good things made at home.</p>
+              <a class="interest-link" href="#cooking"
+                >A little about cooking <span aria-hidden="true">→</span></a
+              >
+            </article>
           </div>
           <div class="interest-details" aria-live="polite">
+            <article id="cooking" class="interest-detail-card">
+              <p class="interest-label">In the kitchen</p>
+              <h3>Cooking</h3>
+              <p>
+                A place for recipes I enjoy, things I’m learning to make, and
+                kitchen experiments worth repeating.
+              </p>
+              <p class="stats-source">A few snapshots from meals and kitchen experiments.</p>
+              <div class="kitchen-gear-heading">
+                <h4>Kitchen gear</h4>
+                <a class="kitchen-brand-link" href="https://knifewear.com/" target="_blank" rel="noopener noreferrer">
+                  <img class="kitchen-brand-logo" src="media/kitchen/knifewear-logo.png" alt="KnifeWear">
+                </a>
+              </div>
+              <div class="kitchen-gear-grid" aria-label="Kitchen knives and cutting board">
+                <figure>
+                  <img src="media/kitchen/knives.jpg" alt="Four kitchen knives displayed on an end-grain cutting board." loading="lazy" decoding="async">
+                  <figcaption>My knives, bought at <a href="https://knifewear.com/" target="_blank" rel="noopener noreferrer">KnifeWear</a>.</figcaption>
+                </figure>
+                <figure>
+                  <img src="media/kitchen/cutting-board.jpg" alt="An end-grain cutting board from KnifeWear on the kitchen counter." loading="lazy" decoding="async">
+                  <figcaption>My cutting board, also from <a href="https://knifewear.com/" target="_blank" rel="noopener noreferrer">KnifeWear</a>.</figcaption>
+                </figure>
+                <figure>
+                  <img src="media/kitchen/apron.jpg" alt="The black Gold Label Strathcona apron shown on a model." loading="lazy" decoding="async">
+                  <figcaption>Product photo of my <a href="https://searchandrescuedenim.com/products/gold-label-strathcona-apron?_pos=1&amp;_psq=1x+Gold+Label+-+Strathcona+Apron+-+Regular+%2834%22%2F86cm+long%29+for+%2498.00+each&amp;_psid=9750a2969&amp;_ss=e&amp;variant=42319934652576" target="_blank" rel="noopener noreferrer">Gold Label Strathcona Apron</a>.</figcaption>
+                </figure>
+                <figure>
+                  <img src="media/kitchen/joule.png" alt="Joule Turbo sous vide immersion circulator." loading="lazy" decoding="async">
+                  <figcaption>My <a href="https://www.chefsteps.com/en-us/product/bsv600?sku=BSV600PSS1BNA1" target="_blank" rel="noopener noreferrer">Joule Turbo sous vide</a>.</figcaption>
+                </figure>
+              </div>
+              <h4>Meal photos</h4>
+              <div class="meal-photo-grid" aria-label="Meal photo gallery">
+                <figure>
+                  <img src="media/meals/meal-01.jpg" alt="Several small dishes arranged on a black serving plate." loading="lazy" decoding="async">
+                </figure>
+                <figure>
+                  <img src="media/meals/meal-03.jpg" alt="A small appetizer with a garnish and crisp pieces." loading="lazy" decoding="async">
+                </figure>
+                <figure>
+                  <img src="media/meals/meal-04.jpg" alt="Fresh oysters served with lemon and sauce." loading="lazy" decoding="async">
+                </figure>
+                <figure>
+                  <img src="media/meals/meal-05.jpg" alt="Several plated entrees prepared for a group." loading="lazy" decoding="async">
+                </figure>
+                <figure>
+                  <img src="media/meals/meal-07.jpg" alt="A plated main course with pasta and vegetables." loading="lazy" decoding="async">
+                </figure>
+                <figure>
+                  <img src="media/meals/meal-08.jpg" alt="An omelet cut open to show its filling." loading="lazy" decoding="async">
+                </figure>
+                <figure>
+                  <img src="media/meals/meal-09.jpg" alt="Rows of small toast appetizers arranged on serving trays." loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </article>
             <article id="dnd-setup" class="interest-detail-card">
               <p class="interest-label">At the table</p>
               <h3>My character: Vadrak Rochefort</h3>
@@ -170,19 +235,15 @@
               </ul>
             </article>
             <article id="golf-activities" class="interest-detail-card">
-              <p class="interest-label">Garmin scorecards</p>
-              <h3>Golf rounds</h3>
-              <div class="golf-handicap" aria-label="Estimated golf handicap">
-                <span class="golf-handicap-label">Estimated handicap</span>
-                <strong>~3.1</strong>
-                <span class="golf-handicap-method">
-                  Approximation from the best 8 score-to-par results among the
-                  20 most recent scored full rounds; course ratings and slopes
-                  aren’t available, so this isn’t an official Handicap Index.
-                </span>
+              <p class="interest-label">Golf summary</p>
+              <h3>My game</h3>
+              <div class="golf-handicap" aria-label="Golf handicap">
+                <span class="golf-handicap-label">Handicap</span>
+                <strong>11</strong>
               </div>
-              <p id="golf-round-summary" class="stats-source">
-                Loading scored rounds…
+              <p class="stats-source">
+                My 15 most recent scored Garmin rounds. Nine-hole rounds are
+                labeled.
               </p>
               <ul id="golf-round-list" class="golf-round-list" aria-live="polite"></ul>
               <p id="golf-round-error" class="stats-source" role="status"></p>

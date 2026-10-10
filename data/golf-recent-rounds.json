@@ -1,0 +1,92 @@
+[
+    {
+        "date":  "Sat, Oct 3, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  79,
+        "toPar":  "+7"
+    },
+    {
+        "date":  "Fri, Sep 25, 2026",
+        "course":  "Auberge et Club de Golf Heritage",
+        "score":  76,
+        "toPar":  "+5"
+    },
+    {
+        "date":  "Wed, Sep 23, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  77,
+        "toPar":  "+5"
+    },
+    {
+        "date":  "Sat, Sep 19, 2026",
+        "course":  "The Meadows Golf \u0026 Country Club South",
+        "score":  39,
+        "toPar":  "+3"
+    },
+    {
+        "date":  "Sat, Sep 19, 2026",
+        "course":  "The Meadows Golf \u0026 Country Club East",
+        "score":  42,
+        "toPar":  "+6"
+    },
+    {
+        "date":  "Fri, Sep 18, 2026",
+        "course":  "Hammond Golf \u0026 Country Club",
+        "score":  70,
+        "toPar":  "-2"
+    },
+    {
+        "date":  "Wed, Sep 16, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  79,
+        "toPar":  "+7"
+    },
+    {
+        "date":  "Sun, Sep 6, 2026",
+        "course":  "Château Cartier Golf Course",
+        "score":  75,
+        "toPar":  "+5"
+    },
+    {
+        "date":  "Mon, Aug 31, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  77,
+        "toPar":  "+5"
+    },
+    {
+        "date":  "Sat, Aug 29, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  80,
+        "toPar":  "+8"
+    },
+    {
+        "date":  "Fri, Aug 28, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  78,
+        "toPar":  "+6"
+    },
+    {
+        "date":  "Mon, Aug 24, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  75,
+        "toPar":  "+4"
+    },
+    {
+        "date":  "Fri, Aug 14, 2026",
+        "course":  "Château Cartier Golf Course",
+        "score":  82,
+        "toPar":  "+12"
+    },
+    {
+        "date":  "Wed, Aug 12, 2026",
+        "course":  "Les Vieux Moulins Golf Course",
+        "score":  75,
+        "toPar":  "+4"
+    },
+    {
+        "date":  "Sat, Aug 8, 2026",
+        "course":  "Club de Golf Buckingham",
+        "score":  82,
+        "toPar":  "+11"
+    }
+]
