@@ -95,9 +95,32 @@ const convertWordPressEmbeds = (content) => {
     );
 };
 
-const sanitizeContent = (content) => {
+const archivedImageDescriptions = {
+  'CbOS2PnVIAAzug4.jpg:large': 'Photo included with the original post.',
+  'rfRu6ct.jpg': 'Humorous image included with the original post.',
+  'rn4bikxtcbcgbx47bc8j.jpg': 'Tiger Woods holds up a golf shoe.',
+  'office-workers.jpg': 'An illustration of coworkers at computers in an office.',
+  'leo-21.jpg': 'Leonardo DiCaprio holding his Oscar statuette.',
+  'trump-super-tuesday-2-1200x630-1456926693.jpg':
+    'Donald Trump speaks at a podium in front of American flags.',
+  'ufc-president-dana-white-is-all-smiles-during-a-press-confer.jpeg':
+    'A man presents a UFC championship belt.',
+  'hsu.gif': 'Derek Sivers on being happy, smart, and useful.',
+  'fwyowu2dliqrrirrxi6b.jpg': 'A silhouetted figure in a red-lit interior.',
+  'side32.jpg': 'A small cube-shaped projector.'
+};
+
+const sanitizeContent = (content, imageContext = 'the original post') => {
   const template = document.createElement('template');
   template.innerHTML = content;
+  template.content.querySelectorAll('img').forEach((image) => {
+    if (!image.alt.trim()) {
+      const source = image.getAttribute('src') || '';
+      const filename = source.split('/').pop().split('?')[0];
+      image.alt =
+        archivedImageDescriptions[filename] || `Image from ${imageContext}.`;
+    }
+  });
   template.content
     .querySelectorAll('script, style, link, base, meta, object, embed, form, iframe')
     .forEach((element) => element.remove());
@@ -175,17 +198,6 @@ const renderPostCards = (posts, limit) => {
     .join('');
 };
 
-const renderOtherPages = (pages) =>
-  pages
-    .map(
-      (page) => `
-        <a class="category-card" href="page.html?slug=${encodeURIComponent(
-          page.slug
-        )}">${escapeHtml(page.title)}</a>
-      `
-    )
-    .join('');
-
 const showError = (container, message) => {
   if (container) {
     container.innerHTML = `<p class="error-message">${escapeHtml(message)}</p>`;
@@ -212,8 +224,10 @@ const loadSiteContent = async () => {
 };
 
 const postList = document.getElementById('post-list');
-const pageList = document.getElementById('page-list');
+const featuredPostList = document.getElementById('featured-posts');
 const blogSearch = document.getElementById('post-search');
+const categoryFilter = document.getElementById('post-category-filter');
+const postResults = document.getElementById('post-results');
 const postDetail = document.getElementById('post-detail');
 const pageDetail = document.getElementById('page-detail');
 
@@ -226,20 +240,52 @@ loadSiteContent()
       );
     }
 
-    if (pageList) {
-      pageList.innerHTML = renderOtherPages(pages);
+    if (featuredPostList) {
+      const featuredSlugs = ['minds', 'the-rebel-gene', 'do-this'];
+      const featuredPosts = featuredSlugs
+        .map((slug) => posts.find((post) => post.slug === slug))
+        .filter(Boolean);
+      featuredPostList.innerHTML = renderPostCards(featuredPosts);
     }
 
     if (blogSearch && postList) {
-      blogSearch.addEventListener('input', () => {
-        const query = blogSearch.value.trim().toLowerCase();
-        const filteredPosts = posts.filter((post) =>
-          `${post.title} ${post.categories.join(' ')} ${getExcerpt(post.content, 1000)}`
-            .toLowerCase()
-            .includes(query)
+      if (categoryFilter) {
+        const categories = [...new Set(posts.flatMap((post) => post.categories))].sort(
+          (first, second) => first.localeCompare(second)
         );
-        postList.innerHTML = renderPostCards(filteredPosts);
-      });
+        categories.forEach((category) => {
+          const option = document.createElement('option');
+          option.value = category;
+          option.textContent = category;
+          categoryFilter.append(option);
+        });
+      }
+
+      const updateArchive = () => {
+        const query = blogSearch.value.trim().toLowerCase();
+        const selectedCategory = categoryFilter ? categoryFilter.value : '';
+        const filteredPosts = posts.filter(
+          (post) =>
+            (!selectedCategory || post.categories.includes(selectedCategory)) &&
+            `${post.title} ${post.categories.join(' ')} ${getExcerpt(post.content, 1000)}`
+              .toLowerCase()
+              .includes(query)
+        );
+        postList.innerHTML = filteredPosts.length
+          ? renderPostCards(filteredPosts)
+          : '<p class="empty-state">No posts match those filters. Try another search or category.</p>';
+        if (postResults) {
+          postResults.textContent = `${filteredPosts.length} ${
+            filteredPosts.length === 1 ? 'post' : 'posts'
+          } found`;
+        }
+      };
+
+      blogSearch.addEventListener('input', updateArchive);
+      if (categoryFilter) {
+        categoryFilter.addEventListener('change', updateArchive);
+      }
+      updateArchive();
     }
 
     if (postDetail) {
@@ -272,7 +318,10 @@ loadSiteContent()
             : ''
         }</p>
         <h1>${escapeHtml(post.title)}</h1>
-        <div class="article-content">${sanitizeContent(post.content)}</div>
+        <div class="article-content">${sanitizeContent(
+          post.content,
+          `the post “${post.title}”`
+        )}</div>
         ${
           comments
             ? `<section class="comments" aria-labelledby="comments-heading"><h2 id="comments-heading">Comments</h2>${comments}</section>`
@@ -295,7 +344,10 @@ loadSiteContent()
       pageDetail.innerHTML = `
         <p class="post-meta">From the original Jopism site</p>
         <h1>${escapeHtml(page.title)}</h1>
-        <div class="article-content">${sanitizeContent(page.content)}</div>
+        <div class="article-content">${sanitizeContent(
+          page.content,
+          `the ${page.title} page`
+        )}</div>
       `;
       handleImageErrors(pageDetail);
     }

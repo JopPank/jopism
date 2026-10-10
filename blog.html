@@ -9,21 +9,30 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html">
-          <span class="eyebrow">Ideas, life, and things I’m figuring out</span>
-          <span class="brand-name">jopism</span>
+          <img
+            class="brand-image"
+            src="media/2016/02/jopism-philosophy.jpg"
+            alt=""
+          />
+          <span class="brand-signature">
+            <span class="brand-name">jopism</span>
+            <span class="brand-byline">ISM'S BY JOP</span>
+          </span>
         </a>
         <nav class="top-nav" aria-label="Main navigation">
           <a href="blog.html" aria-current="page">Writing</a>
+          <a href="videos.html">Videos</a>
           <a href="page.html?slug=about">About</a>
-          <a href="page.html?slug=now">Now</a>
+          <a href="mailto:jop.pankratz@gmail.com">Contact</a>
         </nav>
       </div>
     </header>
 
-    <main class="section">
+    <main id="main-content" class="section">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">The archive</p>
@@ -36,14 +45,20 @@
           class="search-input"
           type="search"
           placeholder="Search by title, topic, or text"
+          aria-controls="post-list"
         />
+        <label class="search-label" for="post-category-filter">Filter by category</label>
+        <select id="post-category-filter" class="search-input category-filter" aria-controls="post-list">
+          <option value="">All categories</option>
+        </select>
+        <p id="post-results" class="results-status" role="status" aria-live="polite"></p>
         <div id="post-list" class="post-grid archive-grid" aria-live="polite"></div>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><a href="index.html">← Back to jopism.com</a></p>
+        <p><a href="index.html">← Back to jopism.com</a> · <a href="mailto:jop.pankratz@gmail.com">Contact Jop</a></p>
       </div>
     </footer>
   </body>

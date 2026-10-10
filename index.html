@@ -12,16 +12,25 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#home">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html">
-          <span class="eyebrow">Ideas, life, and things I’m figuring out</span>
-          <span class="brand-name">jopism</span>
+          <img
+            class="brand-image"
+            src="media/2016/02/jopism-philosophy.jpg"
+            alt=""
+          />
+          <span class="brand-signature">
+            <span class="brand-name">jopism</span>
+            <span class="brand-byline">ISM'S BY JOP</span>
+          </span>
         </a>
         <nav class="top-nav" aria-label="Main navigation">
           <a href="blog.html">Writing</a>
+          <a href="videos.html">Videos</a>
           <a href="page.html?slug=about">About</a>
-          <a href="page.html?slug=now">Now</a>
+          <a href="mailto:jop.pankratz@gmail.com">Contact</a>
         </nav>
       </div>
     </header>
@@ -44,31 +53,75 @@
         </div>
       </section>
 
+      <section class="section alt" aria-labelledby="start-here-heading">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">A few places to begin</p>
+            <h2 id="start-here-heading">Start here</h2>
+            <p class="intro-copy">A few pieces from the archive that give a feel for Jopism.</p>
+          </div>
+          <div id="featured-posts" class="post-grid"></div>
+        </div>
+      </section>
+
+      <section id="interests" class="section" aria-labelledby="interests-heading">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Beyond the blog</p>
+            <h2 id="interests-heading">A few other interests</h2>
+            <p class="intro-copy">
+              A little room for the things I enjoy outside of writing.
+            </p>
+          </div>
+          <div class="interest-grid">
+            <article class="interest-card">
+              <p class="interest-label">Endurance</p>
+              <h3>Triathlon</h3>
+              <p>Swim, bike, run: training, race days, and lessons along the way.</p>
+              <span class="interest-note">More to come</span>
+            </article>
+            <article class="interest-card">
+              <p class="interest-label">On the course</p>
+              <h3>Golf</h3>
+              <p>Rounds, courses, and the occasional thought about the game.</p>
+              <a
+                class="interest-link"
+                href="post.html?slug=tiger-woods-posts-video-showing-that-maybe-he-isnt-old-and-fucked-up"
+                >From the archive: Tiger Woods <span aria-hidden="true">→</span></a
+              >
+            </article>
+            <article class="interest-card">
+              <p class="interest-label">Game day</p>
+              <h3>Fantasy Football</h3>
+              <p>Draft picks, lineup calls, waiver moves, and weekly surprises.</p>
+              <span class="interest-note">More to come</span>
+            </article>
+            <article class="interest-card">
+              <p class="interest-label">At the table</p>
+              <h3>Dungeons &amp; Dragons</h3>
+              <p>Characters, campaigns, world-building, and shared adventures.</p>
+              <span class="interest-note">More to come</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="posts" class="section">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">From the archive</p>
-            <h2>Writing</h2>
+            <p class="eyebrow">Fresh from the archive</p>
+            <h2>Recent writing</h2>
           </div>
           <div id="post-list" class="post-grid" data-limit="6" aria-live="polite"></div>
           <p class="section-action"><a href="blog.html">See all writing →</a></p>
         </div>
       </section>
 
-      <section class="section alt">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">More about this site</p>
-            <h2>Other pages</h2>
-          </div>
-          <div id="page-list" class="category-grid"></div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>jopism.com · A little bit of everything</p>
+        <p>jopism.com · A little bit of everything · <a href="mailto:jop.pankratz@gmail.com">Contact Jop</a></p>
       </div>
     </footer>
   </body>
