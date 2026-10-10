@@ -30,35 +30,36 @@
           <a href="blog.html">Writing</a>
           <a href="videos.html">Videos</a>
           <a href="page.html?slug=about">About</a>
-          <a href="mailto:jop.pankratz@gmail.com">Contact</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="home">
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-copy">
-            <p class="tag">A personal corner of the internet</p>
-            <h1>Musings, experiments, and whatever comes next.</h1>
-            <p>
-              This is my place for thoughts, things I find interesting, and
-              whatever else I feel like putting out into the world.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="blog.html">Browse the writing</a>
-              <a class="button secondary" href="page.html?slug=about">A little about me</a>
+      <section class="section home-about-section" aria-labelledby="home-about-heading">
+        <div class="container">
+          <article class="home-about-card">
+            <figure class="about-portrait">
+              <img src="media/about/jop-golf-cartoon.png" alt="A cartoon portrait of Jop holding a golf club beside a golf bag." decoding="async">
+            </figure>
+            <div class="home-about-copy">
+              <p class="eyebrow">A little about me</p>
+              <h1 id="home-about-heading">About Jop</h1>
+              <p>I am Jop. I apparently now write stuff all the time. No really. You’ll see.</p>
+              <p>Father to one son (that I know of). Boyfriend to one woman (that I know of). Public Servant to one government (that you probably know of).</p>
+              <p>On a current quest to just DO and TRY stuff. To make. To create. To think more. To get better more. To share more. To get off my ass and make changes to me, to my life, and then hopefully, to the world. To put myself out there.</p>
+              <a class="interest-link" href="page.html?slug=about">More about me <span aria-hidden="true">→</span></a>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
       <section class="section alt" aria-labelledby="start-here-heading">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">A few places to begin</p>
+            <p class="eyebrow">Recent writing</p>
             <h2 id="start-here-heading">Start here</h2>
-            <p class="intro-copy">A few pieces from the archive that give a feel for Jopism.</p>
+            <p class="intro-copy">The four latest posts from the archive.</p>
           </div>
           <div id="featured-posts" class="post-grid"></div>
         </div>
@@ -96,14 +97,6 @@
               <p>Draft picks, lineup calls, waiver moves, and weekly surprises.</p>
               <a class="interest-link" href="#fantasy-snapshot"
                 >See a Sleeper snapshot <span aria-hidden="true">→</span></a
-              >
-            </article>
-            <article class="interest-card">
-              <p class="interest-label">At the table</p>
-              <h3>Dungeons &amp; Dragons</h3>
-              <p>Campaigns played online with friends, from character sheets to game night.</p>
-              <a class="interest-link" href="#dnd-setup"
-                >How we play <span aria-hidden="true">→</span></a
               >
             </article>
             <article class="interest-card">
@@ -172,67 +165,6 @@
                   <img src="media/meals/meal-09.jpg" alt="Rows of small toast appetizers arranged on serving trays." loading="lazy" decoding="async">
                 </figure>
               </div>
-            </article>
-            <article id="dnd-setup" class="interest-detail-card">
-              <p class="interest-label">At the table</p>
-              <h3>My character: Vadrak Rochefort</h3>
-              <p>
-                Level 8 Hill Dwarf Fighter. A resilient front-line
-                combatant built to protect the rest of the party.
-              </p>
-              <dl class="snapshot-stats dnd-character-stats">
-                <div>
-                  <dt>Armor class</dt>
-                  <dd>20</dd>
-                </div>
-                <div>
-                  <dt>Max hit points</dt>
-                  <dd>84</dd>
-                </div>
-                <div>
-                  <dt>Walking speed</dt>
-                  <dd>30 ft.</dd>
-                </div>
-                <div>
-                  <dt>Strength</dt>
-                  <dd>18</dd>
-                </div>
-              </dl>
-              <p class="stats-source">
-                <a
-                  href="https://www.dndbeyond.com/characters/163187913/v4gJzf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View Vadrak's D&amp;D Beyond character sheet
-                  <span aria-hidden="true">↗</span></a
-                >
-              </p>
-              <h4 class="dnd-table-heading">How we play</h4>
-              <p>
-                Our games bring together Discord for group chat and voice,
-                Roll20 for online sessions, and D&amp;D Beyond for character
-                sheets and campaign tools.
-              </p>
-              <ul class="platform-list">
-                <li>
-                  <a href="https://discord.com" target="_blank" rel="noopener noreferrer"
-                    >Discord <span aria-hidden="true">↗</span></a
-                  >
-                  <span>Chat and voice with the group</span>
-                </li>
-                <li>
-                  <a href="https://roll20.net" target="_blank" rel="noopener noreferrer"
-                    >Roll20 <span aria-hidden="true">↗</span></a
-                  >
-                  <span>Online tabletop sessions</span>
-                </li>
-                <li>
-                  <a href="https://www.dndbeyond.com" target="_blank" rel="noopener noreferrer"
-                    >D&amp;D Beyond <span aria-hidden="true">↗</span></a
-                  >
-                  <span>Characters and campaign resources</span>
-                </li>
-              </ul>
             </article>
             <article id="golf-activities" class="interest-detail-card">
               <p class="interest-label">Golf summary</p>
@@ -331,9 +263,9 @@
 
     </main>
 
-    <footer class="site-footer">
+    <footer id="contact" class="site-footer">
       <div class="container footer-inner">
-        <p>jopism.com · A little bit of everything · <a href="mailto:jop.pankratz@gmail.com">Contact Jop</a></p>
+        <p>jopism.com · A little bit of everything · Email: <a href="mailto:jop.pankratz@gmail.com">jop.pankratz@gmail.com</a></p>
       </div>
     </footer>
   </body>

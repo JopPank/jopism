@@ -353,10 +353,9 @@ loadSiteContent()
     }
 
     if (featuredPostList) {
-      const featuredSlugs = ['minds', 'the-rebel-gene', 'do-this'];
-      const featuredPosts = featuredSlugs
-        .map((slug) => posts.find((post) => post.slug === slug))
-        .filter(Boolean);
+      const featuredPosts = [...posts]
+        .sort((first, second) => new Date(second.date) - new Date(first.date))
+        .slice(0, 4);
       featuredPostList.innerHTML = renderPostCards(featuredPosts);
     }
 
@@ -456,10 +455,22 @@ loadSiteContent()
       pageDetail.innerHTML = `
         <p class="post-meta">From the original Jopism site</p>
         <h1>${escapeHtml(page.title)}</h1>
-        <div class="article-content">${sanitizeContent(
-          page.content,
-          `the ${page.title} page`
-        )}</div>
+        ${
+          page.slug === 'about'
+            ? `<div class="about-page-layout">
+                <figure class="about-portrait">
+                  <img src="media/about/jop-golf-cartoon.png" alt="A cartoon portrait of Jop holding a golf club beside a golf bag." loading="lazy" decoding="async">
+                </figure>
+                <div class="article-content">${sanitizeContent(
+                  page.content,
+                  `the ${page.title} page`
+                )}</div>
+              </div>`
+            : `<div class="article-content">${sanitizeContent(
+                page.content,
+                `the ${page.title} page`
+              )}</div>`
+        }
       `;
       handleImageErrors(pageDetail);
     }
