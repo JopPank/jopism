@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jopism — A little bit of everything</title>
+    <meta
+      name="description"
+      content="Musings, experiments, and whatever comes next from Jop."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <span class="eyebrow">Ideas, life, and things I’m figuring out</span>
+          <span class="brand-name">jopism</span>
+        </a>
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="blog.html">Writing</a>
+          <a href="page.html?slug=about">About</a>
+          <a href="page.html?slug=now">Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="tag">A personal corner of the internet</p>
+            <h1>Musings, experiments, and whatever comes next.</h1>
+            <p>
+              This is my place for thoughts, things I find interesting, and
+              whatever else I feel like putting out into the world.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="blog.html">Browse the writing</a>
+              <a class="button secondary" href="page.html?slug=about">A little about me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="posts" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">From the archive</p>
+            <h2>Writing</h2>
+          </div>
+          <div id="post-list" class="post-grid" data-limit="6" aria-live="polite"></div>
+          <p class="section-action"><a href="blog.html">See all writing →</a></p>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">More about this site</p>
+            <h2>Other pages</h2>
+          </div>
+          <div id="page-list" class="category-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>jopism.com · A little bit of everything</p>
+      </div>
+    </footer>
+  </body>
+</html>
