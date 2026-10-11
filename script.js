@@ -332,8 +332,222 @@ const loadGolfRounds = async () => {
   }
 };
 
+const sportsScoreboards = {
+  nfl: {
+    url: 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard',
+    name: 'NFL',
+    kind: 'teams'
+  },
+  nhl: {
+    url: 'https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard',
+    name: 'NHL',
+    kind: 'teams'
+  },
+  pga: {
+    url: 'https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard',
+    name: 'PGA Tour',
+    kind: 'golf'
+  }
+};
+
+const createScoreRow = (label, value, className) => {
+  const row = document.createElement('li');
+  row.className = className;
+
+  const name = document.createElement('span');
+  name.textContent = label;
+  const score = document.createElement('strong');
+  score.textContent = value;
+  row.append(name, score);
+  return row;
+};
+
+const formatScoreUpdateTime = () =>
+  new Intl.DateTimeFormat(undefined, {
+    hour: 'numeric',
+    minute: '2-digit'
+  }).format(new Date());
+
+const renderTeamScoreboard = (list, events) => {
+  const games = events
+    .map((event) => ({
+      event,
+      competition: event.competitions?.[0]
+    }))
+    .filter(({ competition }) => Array.isArray(competition?.competitors))
+    .sort((first, second) => {
+      const getRank = (game) => {
+        const state =
+          game.competition.status?.type?.state ||
+          game.event.status?.type?.state;
+        return state === 'in' ? 0 : state === 'post' ? 1 : state === 'pre' ? 2 : 3;
+      };
+      const rankDifference = getRank(first) - getRank(second);
+      if (rankDifference) {
+        return rankDifference;
+      }
+      const firstDate = new Date(first.event.date).getTime();
+      const secondDate = new Date(second.event.date).getTime();
+      return getRank(first) === 2
+        ? firstDate - secondDate
+        : secondDate - firstDate;
+    })
+    .slice(0, 5);
+
+  const fragment = document.createDocumentFragment();
+  games.forEach(({ event, competition }) => {
+    const game = document.createElement('li');
+    const state =
+      competition.status?.type?.state || event.status?.type?.state;
+    game.className = `sports-game${state === 'in' ? ' is-live' : ''}`;
+
+    const teams = [...competition.competitors].sort((first, second) =>
+      first.homeAway === 'away' ? -1 : second.homeAway === 'away' ? 1 : 0
+    );
+    teams.forEach((team) => {
+      const teamName = team.team?.displayName || team.team?.abbreviation;
+      if (!teamName) {
+        throw new Error('A scoreboard entry is missing its team name.');
+      }
+      game.append(
+        createScoreRow(teamName, team.score ?? '—', 'sports-team-score')
+      );
+    });
+
+    const status = document.createElement('p');
+    status.className = 'sports-event-status';
+    status.textContent =
+      competition.status?.type?.shortDetail ||
+      competition.status?.type?.detail ||
+      event.status?.type?.shortDetail ||
+      'Game status unavailable';
+    game.append(status);
+    fragment.append(game);
+  });
+  list.replaceChildren(fragment);
+  return games.length;
+};
+
+const renderGolfLeaderboard = (list, events) => {
+  const event = events.find((candidate) =>
+    Array.isArray(candidate.competitions?.[0]?.competitors)
+  );
+  const competition = event?.competitions?.[0];
+  if (!event || !competition) {
+    list.replaceChildren();
+    return { count: 0, eventName: '' };
+  }
+
+  const players = [...competition.competitors]
+    .sort((first, second) => Number(first.order) - Number(second.order))
+    .slice(0, 5);
+  const scoredPlayers = competition.competitors
+    .map((player) => ({
+      player,
+      score:
+        typeof player.score === 'string' && /^[+-]?\d+$/.test(player.score)
+          ? Number(player.score)
+          : player.score === 'E' && player.linescores?.length
+            ? 0
+            : null
+    }))
+    .filter(({ score }) => score !== null);
+  const scoreCounts = new Map();
+  const scorePositions = new Map();
+  [...new Set(scoredPlayers.map(({ score }) => score))]
+    .sort((first, second) => first - second)
+    .forEach((score) => {
+      const position =
+        1 + scoredPlayers.filter((entry) => entry.score < score).length;
+      scorePositions.set(score, position);
+    });
+  scoredPlayers.forEach(({ score }) => {
+    scoreCounts.set(score, (scoreCounts.get(score) || 0) + 1);
+  });
+  const fragment = document.createDocumentFragment();
+  players.forEach((player) => {
+    const playerName = player.athlete?.displayName;
+    if (!playerName) {
+      throw new Error('A PGA leaderboard entry is missing its player name.');
+    }
+    const scoredPlayer = scoredPlayers.find((entry) => entry.player === player);
+    const score = scoredPlayer?.score;
+    const tied = score !== undefined && scoreCounts.get(score) > 1;
+    const rank = scorePositions.get(score);
+    const position = rank === undefined ? '—' : `${tied ? 'T' : ''}${rank}`;
+    const row = createScoreRow(
+      `${position} · ${playerName}`,
+      player.score ?? '—',
+      'sports-player-score'
+    );
+    fragment.append(row);
+  });
+  list.replaceChildren(fragment);
+  return { count: players.length, eventName: event.name };
+};
+
+const loadSportsScoreboard = async (sport, card) => {
+  const config = sportsScoreboards[sport];
+  const list = card.querySelector('[data-score-list]');
+  const status = card.querySelector('[data-score-status]');
+  if (!config || !list || !status) {
+    throw new Error(`The ${sport} scoreboard is missing required page elements.`);
+  }
+
+  try {
+    const response = await fetch(config.url, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`${config.name} scoreboard request failed with status ${response.status}.`);
+    }
+
+    const data = await response.json();
+    if (!Array.isArray(data.events)) {
+      throw new Error(`${config.name} scoreboard response has no event list.`);
+    }
+
+    card.classList.remove('is-live');
+    if (config.kind === 'golf') {
+      const result = renderGolfLeaderboard(list, data.events);
+      if (!result.count) {
+        status.textContent = `No PGA Tour leaderboard is available right now · Updated ${formatScoreUpdateTime()}`;
+        return;
+      }
+      const competition = data.events.find((event) => event.name === result.eventName)
+        ?.competitions?.[0];
+      if (competition?.status?.type?.state === 'in') {
+        card.classList.add('is-live');
+      }
+      status.textContent = `${result.eventName} · Updated ${formatScoreUpdateTime()}`;
+      return;
+    }
+
+    const count = renderTeamScoreboard(list, data.events);
+    if (!count) {
+      status.textContent = `No ${config.name} games are scheduled right now · Updated ${formatScoreUpdateTime()}`;
+      return;
+    }
+    if (list.querySelector('.is-live')) {
+      card.classList.add('is-live');
+    }
+    status.textContent = `Updated ${formatScoreUpdateTime()}`;
+  } catch (error) {
+    console.error(`Unable to refresh ${config.name} scores:`, error);
+    status.textContent = list.childElementCount
+      ? `Could not refresh ${config.name}; showing the last scores received.`
+      : `${config.name} scores could not be loaded.`;
+  }
+};
+
+const refreshSportsScoreboards = () => {
+  if (document.visibilityState === 'hidden') {
+    return;
+  }
+  document.querySelectorAll('[data-scoreboard]').forEach((card) => {
+    loadSportsScoreboard(card.dataset.scoreboard, card);
+  });
+};
+
 const postList = document.getElementById('post-list');
-const featuredPostList = document.getElementById('featured-posts');
 const blogSearch = document.getElementById('post-search');
 const categoryFilter = document.getElementById('post-category-filter');
 const postResults = document.getElementById('post-results');
@@ -342,6 +556,9 @@ const pageDetail = document.getElementById('page-detail');
 
 loadFantasyStats();
 loadGolfRounds();
+refreshSportsScoreboards();
+window.setInterval(refreshSportsScoreboards, 60_000);
+document.addEventListener('visibilitychange', refreshSportsScoreboards);
 
 loadSiteContent()
   .then(({ posts, pages }) => {
@@ -350,13 +567,6 @@ loadSiteContent()
         posts,
         postList.dataset.limit ? Number(postList.dataset.limit) : undefined
       );
-    }
-
-    if (featuredPostList) {
-      const featuredPosts = [...posts]
-        .sort((first, second) => new Date(second.date) - new Date(first.date))
-        .slice(0, 4);
-      featuredPostList.innerHTML = renderPostCards(featuredPosts);
     }
 
     if (blogSearch && postList) {

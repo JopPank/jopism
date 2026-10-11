@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <title>Jop's Master Cookbook — Jopism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-slate-900 text-slate-100">
+    <header class="border-b border-slate-700 bg-slate-800 px-6 py-6 shadow-md sm:px-8">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
+            <div>
+                <h1 class="text-center text-3xl font-bold tracking-tight text-amber-400 md:text-left">🍳 Jop's Master Cookbook</h1>
+                <a href="../index.html" class="mt-2 inline-block text-sm text-slate-300 underline decoration-slate-500 underline-offset-4 hover:text-amber-400">← Back to Jopism</a>
+            </div>
+            <div class="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
+                <label class="sr-only" for="searchInput">Search recipes and ingredients</label>
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search recipes, ingredients..."
+                    class="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-sm focus:border-amber-400 focus:outline-none sm:w-64"
+                >
+                <label class="sr-only" for="categoryFilter">Filter by cooking method</label>
+                <select
+                    id="categoryFilter"
+                    class="rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-sm focus:border-amber-400 focus:outline-none"
+                >
+                    <option value="All">All Methods</option>
+                    <option value="Sous-Vide">Sous-Vide</option>
+                    <option value="BBQ &amp; Grill">BBQ &amp; Grill</option>
+                    <option value="Air Fryer">Air Fryer</option>
+                    <option value="Stove/Oven">Stove/Oven</option>
+                    <option value="Method not specified">Method not specified</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-8 sm:px-8">
+        <div id="recipeGrid" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
+    </main>
+
+    <dialog id="recipeDialog" aria-labelledby="recipeDialogTitle">
+        <div class="flex items-start justify-between gap-4 border-b border-slate-700 px-6 py-5">
+            <div id="recipeDialogHeading"></div>
+            <button
+                id="closeRecipeDialog"
+                type="button"
+                class="rounded-lg bg-slate-700 px-3 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-slate-600"
+                aria-label="Close recipe"
+            >Close</button>
+        </div>
+        <div id="recipeDialogBody" class="space-y-6 px-6 py-5"></div>
+    </dialog>
+
+    <script src="recipes.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

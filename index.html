@@ -29,6 +29,7 @@
         <nav class="top-nav" aria-label="Main navigation">
           <a href="blog.html">Writing</a>
           <a href="videos.html">Videos</a>
+          <a href="cookbook/index.html">Recipes</a>
           <a href="page.html?slug=about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -36,41 +37,13 @@
     </header>
 
     <main id="home">
-      <section class="section home-about-section" aria-labelledby="home-about-heading">
-        <div class="container">
-          <article class="home-about-card">
-            <figure class="about-portrait">
-              <img src="media/about/jop-golf-cartoon.png" alt="A cartoon portrait of Jop holding a golf club beside a golf bag." decoding="async">
-            </figure>
-            <div class="home-about-copy">
-              <p class="eyebrow">A little about me</p>
-              <h1 id="home-about-heading">About Jop</h1>
-              <p>I am Jop. I apparently now write stuff all the time. No really. You’ll see.</p>
-              <p>Father to one son (that I know of). Boyfriend to one woman (that I know of). Public Servant to one government (that you probably know of).</p>
-              <p>On a current quest to just DO and TRY stuff. To make. To create. To think more. To get better more. To share more. To get off my ass and make changes to me, to my life, and then hopefully, to the world. To put myself out there.</p>
-              <a class="interest-link" href="page.html?slug=about">More about me <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section recent-writing-section" aria-labelledby="recent-writing-heading">
-        <div class="container">
-          <div class="section-heading">
-            <h2 id="recent-writing-heading">Recent Writing</h2>
-            <p class="intro-copy">The four latest posts from the archive.</p>
-          </div>
-          <div id="featured-posts" class="post-grid"></div>
-        </div>
-      </section>
-
       <section id="interests" class="section interests-section" aria-labelledby="interests-heading">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Beyond the blog</p>
-            <h2 id="interests-heading">A few other interests</h2>
+            <p class="eyebrow">A little bit of everything</p>
+            <h2 id="interests-heading">Curiosity, in all directions</h2>
             <p class="intro-copy">
-              A little room for the things I enjoy outside of writing.
+              From race days to the kitchen, explore some of the interests that make up Jopism.
             </p>
           </div>
           <div class="interest-grid">
@@ -108,7 +81,7 @@
               </div>
             </article>
             <article class="interest-card interest-cooking">
-              <img class="interest-card-image" src="media/meals/meal-07.jpg" alt="A plated main course with pasta and vegetables." loading="lazy" decoding="async">
+              <img class="interest-card-image" src="media/interests/cooking.svg" alt="Illustration of a saucepan, wooden spoon, herbs, and vegetables in a bright kitchen." loading="lazy" decoding="async">
               <div class="interest-card-content">
                 <p class="interest-label">In the kitchen</p>
                 <h3>Cooking</h3>
@@ -127,6 +100,19 @@
                 A place for recipes I enjoy, things I’m learning to make, and
                 kitchen experiments worth repeating.
               </p>
+              <a class="cookbook-cta" href="cookbook/index.html">
+                <span class="cookbook-cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" focusable="false">
+                    <path d="M5 7.5c4.2-1.6 7.9-1.2 11 1.2v17c-3.1-2.4-6.8-2.8-11-1.2zM27 7.5c-4.2-1.6-7.9-1.2-11 1.2v17c3.1-2.4 6.8-2.8 11-1.2z"/>
+                    <path d="M16 8.7v17"/>
+                  </svg>
+                </span>
+                <span class="cookbook-cta-copy">
+                  <strong>Browse the cookbook</strong>
+                  <span>Explore recipes, ingredients, and cooking notes</span>
+                </span>
+                <span class="cookbook-cta-arrow" aria-hidden="true">→</span>
+              </a>
               <p class="stats-source">A few snapshots from meals and kitchen experiments.</p>
               <div class="kitchen-gear-heading">
                 <h4>Kitchen gear</h4>
@@ -194,32 +180,42 @@
             <article id="triathlon-results" class="interest-detail-card">
               <p class="interest-label">Race results</p>
               <h3>Triathlon</h3>
-              <ul class="race-result-list">
-                <li class="race-result">
-                  <span><strong>2026</strong> · 5150 Mont-Tremblant</span>
-                  <strong>3:28:45</strong>
-                </li>
-                <li class="race-result">
-                  <span><strong>2023</strong> · 5150 Mont-Tremblant</span>
-                  <strong>3:20:58</strong>
-                </li>
-                <li class="race-result">
-                  <span><strong>2022</strong> · 5150 Mont-Tremblant</span>
-                  <strong>3:32:22</strong>
-                </li>
-                <li class="race-result">
-                  <span><strong>2019</strong> · 5150 Mont-Tremblant</span>
-                  <strong>3:04:39</strong>
-                </li>
-                <li class="race-result">
-                  <span><strong>2023</strong> · Ottawa Early Bird Sprint</span>
-                  <strong>1:27:11</strong>
-                </li>
-                <li class="race-result">
-                  <span><strong>2022</strong> · Ottawa Early Bird Sprint</span>
-                  <strong>1:27:07</strong>
-                </li>
-              </ul>
+              <div class="race-results-grid">
+                <section class="race-results-group" aria-labelledby="race-5150-heading">
+                  <h4 id="race-5150-heading" class="race-results-heading">5150 Mont-Tremblant</h4>
+                  <ul class="race-result-list">
+                    <li class="race-result">
+                      <span><strong>2026</strong> · 5150 Mont-Tremblant</span>
+                      <strong>3:28:45</strong>
+                    </li>
+                    <li class="race-result">
+                      <span><strong>2023</strong> · 5150 Mont-Tremblant</span>
+                      <strong>3:20:58</strong>
+                    </li>
+                    <li class="race-result">
+                      <span><strong>2022</strong> · 5150 Mont-Tremblant</span>
+                      <strong>3:32:22</strong>
+                    </li>
+                    <li class="race-result">
+                      <span><strong>2019</strong> · 5150 Mont-Tremblant</span>
+                      <strong>3:04:39</strong>
+                    </li>
+                  </ul>
+                </section>
+                <section class="race-results-group" aria-labelledby="other-races-heading">
+                  <h4 id="other-races-heading" class="race-results-heading">Other races</h4>
+                  <ul class="race-result-list">
+                    <li class="race-result">
+                      <span><strong>2023</strong> · Ottawa Early Bird Sprint</span>
+                      <strong>1:27:11</strong>
+                    </li>
+                    <li class="race-result">
+                      <span><strong>2022</strong> · Ottawa Early Bird Sprint</span>
+                      <strong>1:27:07</strong>
+                    </li>
+                  </ul>
+                </section>
+              </div>
               <p class="stats-source">
                 <a href="https://sportstats.one/results/athlete/56041"
                   >View full results on Sportstats <span aria-hidden="true">→</span></a
@@ -258,6 +254,43 @@
               </p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="section sports-scores-section" aria-labelledby="sports-scores-heading">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">The latest from the leagues</p>
+            <h2 id="sports-scores-heading">Live sports</h2>
+            <p class="intro-copy">NFL and NHL scores plus the PGA Tour leaderboard, refreshed every minute.</p>
+          </div>
+          <div class="sports-score-grid">
+            <article class="sports-score-card" data-scoreboard="nfl">
+              <div class="sports-score-card-heading">
+                <h3>NFL</h3>
+                <a href="https://www.espn.com/nfl/scoreboard" target="_blank" rel="noopener noreferrer">Full scoreboard <span aria-hidden="true">→</span></a>
+              </div>
+              <ul class="sports-score-list" data-score-list></ul>
+              <p class="sports-score-status" data-score-status>Loading NFL scores…</p>
+            </article>
+            <article class="sports-score-card" data-scoreboard="nhl">
+              <div class="sports-score-card-heading">
+                <h3>NHL</h3>
+                <a href="https://www.espn.com/nhl/scoreboard" target="_blank" rel="noopener noreferrer">Full scoreboard <span aria-hidden="true">→</span></a>
+              </div>
+              <ul class="sports-score-list" data-score-list></ul>
+              <p class="sports-score-status" data-score-status>Loading NHL scores…</p>
+            </article>
+            <article class="sports-score-card" data-scoreboard="pga">
+              <div class="sports-score-card-heading">
+                <h3>PGA Tour</h3>
+                <a href="https://www.espn.com/golf/leaderboard" target="_blank" rel="noopener noreferrer">Full leaderboard <span aria-hidden="true">→</span></a>
+              </div>
+              <ul class="sports-score-list" data-score-list></ul>
+              <p class="sports-score-status" data-score-status>Loading PGA Tour leaderboard…</p>
+            </article>
+          </div>
+          <p class="sports-scores-attribution">Scores and leaderboard data by ESPN.</p>
         </div>
       </section>
 

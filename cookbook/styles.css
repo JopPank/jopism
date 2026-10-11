@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+input,
+select,
+button {
+    min-height: 2.75rem;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 2px solid #2d913f;
+    outline-offset: 2px;
+}
+
+#recipeDialog {
+    width: min(42rem, calc(100% - 2rem));
+    max-width: none;
+    max-height: min(85vh, 48rem);
+    padding: 0;
+    overflow: auto;
+    color: #f1f5f9;
+    background: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 0.75rem;
+}
+
+#recipeDialog::backdrop {
+    background: rgb(2 6 23 / 75%);
+}
+
+.recipe-photo-placeholder {
+    background:
+        linear-gradient(145deg, rgb(45 145 63 / 8%), transparent 70%),
+        #f5f7f5;
+    border: 1px dashed rgb(35 68 42 / 16%) !important;
+    color: #536257 !important;
+}
+
+.recipe-card-image {
+    aspect-ratio: 16 / 9;
+    border-bottom: 1px solid rgb(35 68 42 / 16%);
+    height: 11rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 12% 5%, rgb(65 143 77 / 10%), transparent 32rem),
+        radial-gradient(ellipse at 92% 42%, rgb(58 126 70 / 7%), transparent 34rem),
+        linear-gradient(145deg, #f3f5f2 0%, #e9eee9 52%, #f2f4f1 100%) !important;
+    color: #1b2920 !important;
+}
+
+body > header {
+    background: rgb(247 249 247 / 94%) !important;
+    border-color: rgb(35 68 42 / 16%) !important;
+    box-shadow: 0 8px 24px rgb(31 48 35 / 8%) !important;
+}
+
+body > header h1 {
+    color: #187a35 !important;
+}
+
+body > header a {
+    color: #536257 !important;
+}
+
+body > header a:hover {
+    color: #105f29 !important;
+}
+
+body > header input,
+body > header select {
+    background: #fff !important;
+    border-color: rgb(35 68 42 / 22%) !important;
+    color: #1b2920 !important;
+}
+
+body > header input:focus,
+body > header select:focus {
+    border-color: #187a35 !important;
+}
+
+#recipeGrid article {
+    background: linear-gradient(160deg, #fff, #edf5ee) !important;
+    border-color: rgb(24 122 53 / 22%) !important;
+    box-shadow: 0 12px 28px rgb(31 48 35 / 9%);
+}
+
+#recipeGrid article:hover {
+    border-color: #31864a !important;
+    box-shadow: 0 18px 36px rgb(31 48 35 / 14%);
+}
+
+#recipeGrid article h2,
+#recipeGrid article p,
+#recipeGrid article li {
+    color: #1b2920 !important;
+}
+
+#recipeGrid article h3,
+#recipeGrid article .text-slate-400 {
+    color: #536257 !important;
+}
+
+#recipeGrid article .text-amber-400 {
+    color: #187a35 !important;
+}
+
+#recipeGrid article .border-amber-400\/20 {
+    border-color: rgb(24 122 53 / 22%) !important;
+}
+
+#recipeGrid article .bg-amber-400\/10 {
+    background: rgb(24 122 53 / 8%) !important;
+}
+
+#recipeGrid article .bg-slate-900\/50 {
+    background: rgb(24 122 53 / 5%) !important;
+}
+
+#recipeGrid article .border-slate-700\/50 {
+    border-color: rgb(35 68 42 / 13%) !important;
+}
+
+#recipeGrid article button,
+#recipeDialog button {
+    background: #187a35 !important;
+    color: #fff !important;
+}
+
+#recipeGrid article button:hover,
+#recipeDialog button:hover {
+    background: #105f29 !important;
+    color: #fff !important;
+}
+
+.recipe-photo-placeholder {
+    background:
+        linear-gradient(145deg, rgb(45 145 63 / 8%), transparent 70%),
+        #f5f7f5;
+    border-color: rgb(35 68 42 / 16%) !important;
+    color: #536257 !important;
+}
+
+#recipeDialog {
+    background: #fff !important;
+    border-color: rgb(35 68 42 / 20%) !important;
+    color: #1b2920 !important;
+    box-shadow: 0 24px 70px rgb(31 48 35 / 24%);
+}
+
+#recipeDialog > div:first-child {
+    border-color: rgb(35 68 42 / 16%) !important;
+}
+
+#recipeDialog h2,
+#recipeDialog h3,
+#recipeDialog .text-amber-400 {
+    color: #187a35 !important;
+}
+
+#recipeDialog p,
+#recipeDialog li,
+#recipeDialog dd {
+    color: #1b2920 !important;
+}
+
+#recipeDialog .text-slate-300,
+#recipeDialog .text-slate-400 {
+    color: #536257 !important;
+}
+
+#recipeDialog .bg-slate-900\/50 {
+    background: #f5f7f5 !important;
+}
+
+#recipeDialog .border-slate-700 {
+    border-color: rgb(35 68 42 / 16%) !important;
+}
+
+#recipeDialog .bg-amber-400\/10 {
+    background: rgb(45 145 63 / 9%) !important;
+}
+
+#recipeDialog .border-amber-400\/30 {
+    border-color: rgb(24 122 53 / 24%) !important;
+}
+
+#recipeDialog::backdrop {
+    background: rgb(27 41 32 / 55%);
+}
