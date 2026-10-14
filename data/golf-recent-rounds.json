@@ -1,92 +1,158 @@
 [
-    {
-        "date":  "Sat, Oct 3, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  79,
-        "toPar":  "+7"
-    },
-    {
-        "date":  "Fri, Sep 25, 2026",
-        "course":  "Auberge et Club de Golf Heritage",
-        "score":  76,
-        "toPar":  "+5"
-    },
-    {
-        "date":  "Wed, Sep 23, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  77,
-        "toPar":  "+5"
-    },
-    {
-        "date":  "Sat, Sep 19, 2026",
-        "course":  "The Meadows Golf \u0026 Country Club South",
-        "score":  39,
-        "toPar":  "+3"
-    },
-    {
-        "date":  "Sat, Sep 19, 2026",
-        "course":  "The Meadows Golf \u0026 Country Club East",
-        "score":  42,
-        "toPar":  "+6"
-    },
-    {
-        "date":  "Fri, Sep 18, 2026",
-        "course":  "Hammond Golf \u0026 Country Club",
-        "score":  70,
-        "toPar":  "-2"
-    },
-    {
-        "date":  "Wed, Sep 16, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  79,
-        "toPar":  "+7"
-    },
-    {
-        "date":  "Sun, Sep 6, 2026",
-        "course":  "Château Cartier Golf Course",
-        "score":  75,
-        "toPar":  "+5"
-    },
-    {
-        "date":  "Mon, Aug 31, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  77,
-        "toPar":  "+5"
-    },
-    {
-        "date":  "Sat, Aug 29, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  80,
-        "toPar":  "+8"
-    },
-    {
-        "date":  "Fri, Aug 28, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  78,
-        "toPar":  "+6"
-    },
-    {
-        "date":  "Mon, Aug 24, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  75,
-        "toPar":  "+4"
-    },
-    {
-        "date":  "Fri, Aug 14, 2026",
-        "course":  "Château Cartier Golf Course",
-        "score":  82,
-        "toPar":  "+12"
-    },
-    {
-        "date":  "Wed, Aug 12, 2026",
-        "course":  "Les Vieux Moulins Golf Course",
-        "score":  75,
-        "toPar":  "+4"
-    },
-    {
-        "date":  "Sat, Aug 8, 2026",
-        "course":  "Club de Golf Buckingham",
-        "score":  82,
-        "toPar":  "+11"
+  {
+    "date": "10/12/2026",
+    "course": "Gatineau Golf & CC",
+    "score": 77,
+    "toPar": "+6",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -2.8,
+      "approach": 1.2,
+      "shortGame": -1.0,
+      "putting": 2.2
     }
+  },
+  {
+    "date": "10/03/2026",
+    "course": "Club de Golf Les Vieux Moulins",
+    "score": 80,
+    "toPar": "+8",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -4.4,
+      "approach": 1.7,
+      "shortGame": -0.6,
+      "putting": -0.2
+    }
+  },
+  {
+    "date": "09/30/2026",
+    "course": "Gatineau Golf & CC",
+    "score": 79,
+    "toPar": "+8",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -3.2,
+      "approach": -1.9,
+      "shortGame": 0.9,
+      "putting": 1.8
+    }
+  },
+  {
+    "date": "09/25/2026",
+    "course": "Club de Golf Heritage",
+    "score": 77,
+    "toPar": "+5",
+    "holes": 18,
+    "strokesGained": {
+      "driving": 0.4,
+      "approach": 0.7,
+      "shortGame": 0.4,
+      "putting": -0.2
+    }
+  },
+  {
+    "date": "09/23/2026",
+    "course": "Club de Golf Les Vieux Moulins",
+    "score": 77,
+    "toPar": "+5",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -3.3,
+      "approach": 0.3,
+      "shortGame": 0.0,
+      "putting": 2.6
+    }
+  },
+  {
+    "date": "09/19/2026",
+    "course": "Meadows Golf and CC - East/South",
+    "score": 82,
+    "toPar": "+10",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -2.7,
+      "approach": -2.2,
+      "shortGame": -1.5,
+      "putting": 2.2
+    }
+  },
+  {
+    "date": "09/16/2026",
+    "course": "Club de Golf Les Vieux Moulins",
+    "score": 79,
+    "toPar": "+7",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -2.6,
+      "approach": 0.0,
+      "shortGame": 0.9,
+      "putting": -0.9
+    }
+  },
+  {
+    "date": "09/07/2026",
+    "course": "Gatineau Golf & CC",
+    "score": 82,
+    "toPar": "+11",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -1.1,
+      "approach": -4.2,
+      "shortGame": -0.1,
+      "putting": -0.1
+    }
+  },
+  {
+    "date": "09/06/2026",
+    "course": "Château Cartier Golf Course",
+    "score": 75,
+    "toPar": "+5",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -1.2,
+      "approach": 0.2,
+      "shortGame": -1.0,
+      "putting": 2.7
+    }
+  },
+  {
+    "date": "08/31/2026",
+    "course": "Club de Golf Les Vieux Moulins",
+    "score": 77,
+    "toPar": "+5",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -1.8,
+      "approach": 1.1,
+      "shortGame": 0.8,
+      "putting": -0.5
+    }
+  },
+  {
+    "date": "08/29/2026",
+    "course": "Club de Golf Les Vieux Moulins",
+    "score": 80,
+    "toPar": "+8",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -2.7,
+      "approach": -1.8,
+      "shortGame": -1.5,
+      "putting": 2.7
+    }
+  },
+  {
+    "date": "08/28/2026",
+    "course": "Club de Golf Les Vieux Moulins",
+    "score": 78,
+    "toPar": "+7",
+    "holes": 18,
+    "strokesGained": {
+      "driving": 0.5,
+      "approach": -5.8,
+      "shortGame": 3.0,
+      "putting": 1.5
+    }
+  }
 ]

@@ -27,7 +27,6 @@
           </span>
         </a>
         <nav class="top-nav" aria-label="Main navigation">
-          <a href="blog.html">Writing</a>
           <a href="videos.html">Videos</a>
           <a href="cookbook/index.html">Recipes</a>
           <a href="page.html?slug=about">About</a>
@@ -66,17 +65,6 @@
                 <p>A quick overview of my golf history.</p>
                 <a class="interest-link" href="#golf-activities"
                   >See golf summary <span aria-hidden="true">→</span></a
-                >
-              </div>
-            </article>
-            <article class="interest-card interest-football">
-              <img class="interest-card-image" src="media/interests/football.svg" alt="Illustration of a football on a field." loading="lazy" decoding="async">
-              <div class="interest-card-content">
-                <p class="interest-label">Game day</p>
-                <h3>Fantasy Football</h3>
-                <p>Draft picks, lineup calls, waiver moves, and weekly surprises.</p>
-                <a class="interest-link" href="#fantasy-snapshot"
-                  >See a Sleeper snapshot <span aria-hidden="true">→</span></a
                 >
               </div>
             </article>
@@ -167,12 +155,22 @@
               <p class="interest-label">Golf summary</p>
               <h3>My game</h3>
               <div class="golf-handicap" aria-label="Golf handicap">
-                <span class="golf-handicap-label">Handicap</span>
-                <strong>11</strong>
+                <span class="golf-handicap-label">Handicap Index (estimated)</span>
+                <strong>8.0</strong>
               </div>
               <p class="stats-source">
-                My 15 most recent scored Garmin rounds. Nine-hole rounds are
-                labeled.
+                Based on the best 4 differentials from my last 12 rounds, played
+                from the white tees.
+              </p>
+              <a class="arccos-badge" href="https://www.arccosgolf.com/" target="_blank" rel="noopener noreferrer">
+                <span class="arccos-badge-label">Tracked with</span>
+                <strong>Arccos Golf</strong>
+                <span aria-hidden="true">→</span>
+              </a>
+              <p class="stats-source">
+                I use Arccos smart sensors and its AI caddie on every round.
+                Strokes gained (SG) compares each part of my game to a scratch
+                golfer: Driving, Approach, Short game, and Putting.
               </p>
               <ul id="golf-round-list" class="golf-round-list" aria-live="polite"></ul>
               <p id="golf-round-error" class="stats-source" role="status"></p>
@@ -222,37 +220,6 @@
                 >
               </p>
             </article>
-            <article id="fantasy-snapshot" class="interest-detail-card">
-              <p id="sleeper-updated" class="interest-label">
-                Sleeper · refreshed weekly
-              </p>
-              <h3 id="sleeper-league-name">OF (only football)</h3>
-              <p id="sleeper-team" class="snapshot-team">
-                12-team dynasty · Defending Champ · @IJOPI
-              </p>
-              <dl id="sleeper-stats" class="snapshot-stats">
-                <div>
-                  <dt>Record</dt>
-                  <dd id="sleeper-record">2–2</dd>
-                </div>
-                <div>
-                  <dt>Points for</dt>
-                  <dd id="sleeper-points">550</dd>
-                </div>
-                <div>
-                  <dt>Current week</dt>
-                  <dd id="sleeper-week">5</dd>
-                </div>
-                <div>
-                  <dt>League size</dt>
-                  <dd id="sleeper-size">12 teams</dd>
-                </div>
-              </dl>
-              <p class="stats-source">
-                <span id="sleeper-matchup">Weekly matchup details load with the latest update.</span>
-                <span id="sleeper-refresh-status" role="status"></span>
-              </p>
-            </article>
           </div>
         </div>
       </section>
@@ -291,17 +258,6 @@
             </article>
           </div>
           <p class="sports-scores-attribution">Scores and leaderboard data by ESPN.</p>
-        </div>
-      </section>
-
-      <section id="posts" class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Fresh from the archive</p>
-            <h2>Recent writing</h2>
-          </div>
-          <div id="post-list" class="post-grid" data-limit="6" aria-live="polite"></div>
-          <p class="section-action"><a href="blog.html">See all writing →</a></p>
         </div>
       </section>
 

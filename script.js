@@ -223,56 +223,6 @@ const loadSiteContent = async () => {
   return { posts, pages };
 };
 
-const loadFantasyStats = async () => {
-  const card = document.getElementById('fantasy-snapshot');
-  if (!card) {
-    return;
-  }
-
-  const status = document.getElementById('sleeper-refresh-status');
-  try {
-    const response = await fetch('data/fantasy-stats.json');
-    if (!response.ok) {
-      throw new Error(`Fantasy stats request failed with status ${response.status}.`);
-    }
-
-    const stats = await response.json();
-    const sleeper = stats.sleeper;
-    const updatedAt = new Date(stats.updatedAt);
-    if (!sleeper || Number.isNaN(updatedAt.getTime())) {
-      throw new Error('The published fantasy stats are incomplete.');
-    }
-
-    document.getElementById('sleeper-updated').textContent =
-      `Sleeper · updated ${new Intl.DateTimeFormat(undefined, {
-        dateStyle: 'medium'
-      }).format(updatedAt)}`;
-    document.getElementById('sleeper-league-name').textContent =
-      sleeper.leagueName;
-    document.getElementById('sleeper-team').textContent =
-      `${sleeper.totalTeams}-team dynasty · ${sleeper.teamName} · @${sleeper.username}`;
-    document.getElementById('sleeper-record').textContent =
-      `${sleeper.wins}–${sleeper.losses}${sleeper.ties ? `–${sleeper.ties}` : ''}`;
-    document.getElementById('sleeper-points').textContent =
-      Number(sleeper.pointsFor).toFixed(1);
-    document.getElementById('sleeper-week').textContent = sleeper.week;
-    document.getElementById('sleeper-size').textContent =
-      `${sleeper.totalTeams} teams`;
-    document.getElementById('sleeper-matchup').textContent = sleeper.matchup
-      ? `Week ${sleeper.week}: ${sleeper.matchup.teamName} ${Number(
-          sleeper.matchup.points
-        ).toFixed(1)} – ${Number(sleeper.matchup.opponentPoints).toFixed(1)} ${
-          sleeper.matchup.opponentName
-        }.`
-      : `Week ${sleeper.week} matchup details are not available yet.`;
-    status.textContent = '';
-  } catch (error) {
-    console.error('Unable to load scheduled fantasy football stats:', error);
-    status.textContent =
-      'The latest scheduled update could not be loaded; showing the last published stats.';
-  }
-};
-
 const loadGolfRounds = async () => {
   const list = document.getElementById('golf-round-list');
   if (!list) {
@@ -291,37 +241,142 @@ const loadGolfRounds = async () => {
     const rounds = await response.json();
     if (
       !Array.isArray(rounds) ||
-      rounds.length !== 15 ||
+      rounds.length !== 12 ||
       rounds.some(
         (round) =>
           typeof round.date !== 'string' ||
           typeof round.course !== 'string' ||
           !Number.isInteger(round.score) ||
-          typeof round.toPar !== 'string'
+          typeof round.toPar !== 'string' ||
+          round.holes !== 18 ||
+          !round.strokesGained ||
+          ['driving', 'approach', 'shortGame', 'putting'].some(
+            (category) => !Number.isFinite(round.strokesGained[category])
+          )
       )
     ) {
       throw new Error('The published golf rounds are invalid.');
     }
 
+    const categories = [
+      { key: 'driving', label: 'Driving' },
+      { key: 'approach', label: 'Approach' },
+      { key: 'shortGame', label: 'Short' },
+      { key: 'putting', label: 'Putting' }
+    ];
+    const svgNamespace = 'http://www.w3.org/2000/svg';
     const fragment = document.createDocumentFragment();
     rounds.forEach((round) => {
       const item = document.createElement('li');
       item.className = 'golf-round';
 
-      const details = document.createElement('span');
-      details.className = 'golf-round-details';
-      const date = document.createElement('strong');
-      date.textContent = round.date;
+      const scorePanel = document.createElement('div');
+      scorePanel.className = 'golf-round-score-panel';
       const course = document.createElement('span');
-      course.textContent = round.course;
-      details.append(date, course);
-
       const score = document.createElement('strong');
       score.className = 'golf-round-score';
-      score.textContent = `${round.score} (${round.toPar})${
-        round.score < 60 ? ' · 9 holes' : ''
-      }`;
-      item.append(details, score);
+      score.textContent = round.score;
+      scorePanel.append(score);
+
+      const toPar = document.createElement('span');
+      toPar.className = 'golf-round-to-par';
+      toPar.textContent = round.toPar;
+      scorePanel.append(toPar);
+
+      const details = document.createElement('div');
+      details.className = 'golf-round-details';
+      course.className = 'golf-round-course';
+      course.textContent = round.course;
+      const meta = document.createElement('p');
+      meta.className = 'golf-round-meta';
+      meta.textContent = `${round.date} · ${round.holes} Holes`;
+      details.append(course, meta);
+
+      const stats = document.createElement('div');
+      stats.className = 'golf-round-stats';
+      const chart = document.createElementNS(svgNamespace, 'svg');
+      chart.setAttribute('class', 'golf-round-chart');
+      chart.setAttribute('viewBox', '0 0 400 100');
+      chart.setAttribute('preserveAspectRatio', 'none');
+      chart.setAttribute('role', 'img');
+      chart.setAttribute(
+        'aria-label',
+        categories
+          .map(
+            ({ key, label }) =>
+              `${label}: ${round.strokesGained[key] >= 0 ? '+' : ''}${round.strokesGained[key].toFixed(1)} strokes gained`
+          )
+          .join(', ')
+      );
+
+      const baseline = document.createElementNS(svgNamespace, 'line');
+      baseline.setAttribute('class', 'golf-chart-baseline');
+      baseline.setAttribute('x1', '8');
+      baseline.setAttribute('x2', '392');
+      baseline.setAttribute('y1', '48');
+      baseline.setAttribute('y2', '48');
+      chart.append(baseline);
+
+      const points = categories.map(({ key }, index) => ({
+        x: 50 + index * 100,
+        y: 48 - round.strokesGained[key] * 6.5,
+        value: round.strokesGained[key]
+      }));
+      points.slice(1).forEach((point, index) => {
+        const previous = points[index];
+        const segment = document.createElementNS(svgNamespace, 'line');
+        segment.setAttribute('class', 'golf-chart-segment');
+        segment.setAttribute('x1', previous.x);
+        segment.setAttribute('y1', previous.y);
+        segment.setAttribute('x2', point.x);
+        segment.setAttribute('y2', point.y);
+        segment.classList.add(
+          previous.value + point.value >= 0 ? 'is-positive' : 'is-negative'
+        );
+        chart.append(segment);
+      });
+
+      points.forEach((point) => {
+        const positive = point.value > 0;
+        const colorClass =
+          point.value === 0 ? 'is-neutral' : positive ? 'is-positive' : 'is-negative';
+        const marker = document.createElementNS(svgNamespace, 'circle');
+        marker.setAttribute('class', `golf-chart-marker ${colorClass}`);
+        marker.setAttribute('cx', point.x);
+        marker.setAttribute('cy', point.y);
+        marker.setAttribute('r', '3.5');
+        chart.append(marker);
+
+        const badgeY = Math.max(
+          2,
+          Math.min(74, positive ? point.y - 28 : point.y + 8)
+        );
+        const badge = document.createElementNS(svgNamespace, 'rect');
+        badge.setAttribute('class', `golf-chart-badge ${colorClass}`);
+        badge.setAttribute('x', point.x - 28);
+        badge.setAttribute('y', badgeY);
+        badge.setAttribute('width', '56');
+        badge.setAttribute('height', '22');
+        badge.setAttribute('rx', '3');
+        chart.append(badge);
+
+        const badgeText = document.createElementNS(svgNamespace, 'text');
+        badgeText.setAttribute('class', `golf-chart-badge-text ${colorClass}`);
+        badgeText.setAttribute('x', point.x);
+        badgeText.setAttribute('y', badgeY + 15);
+        badgeText.textContent = `${point.value > 0 ? '+' : ''}${point.value.toFixed(1)} SG`;
+        chart.append(badgeText);
+      });
+
+      const labels = document.createElement('div');
+      labels.className = 'golf-round-category-labels';
+      categories.forEach(({ label }) => {
+        const category = document.createElement('span');
+        category.textContent = label;
+        labels.append(category);
+      });
+      stats.append(chart, labels);
+      item.append(scorePanel, details, stats);
       fragment.append(item);
     });
     list.replaceChildren(fragment);
@@ -554,7 +609,6 @@ const postResults = document.getElementById('post-results');
 const postDetail = document.getElementById('post-detail');
 const pageDetail = document.getElementById('page-detail');
 
-loadFantasyStats();
 loadGolfRounds();
 refreshSportsScoreboards();
 window.setInterval(refreshSportsScoreboards, 60_000);
