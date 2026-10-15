@@ -1809,3 +1809,94 @@ h3 {
 :focus-visible {
   outline-color: var(--accent);
 }
+
+.site-header .header-inner {
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.site-header .brand {
+  flex: 0 0 auto;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.site-header .brand-image {
+  background: #d7b58b;
+  border: 1px solid rgba(198, 167, 124, 0.55);
+  border-radius: 50%;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.28);
+  height: 58px;
+  object-fit: cover;
+  object-position: center;
+  width: 58px;
+}
+
+.site-header .brand-signature {
+  gap: 3px;
+}
+
+.site-header .brand-name {
+  font-size: 1.8rem;
+  letter-spacing: -0.04em;
+}
+
+.site-header .brand-byline {
+  color: #c2c6b7;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-header .top-nav {
+  align-items: center;
+  gap: 6px;
+}
+
+.site-header .top-nav a {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #c1c9be;
+  padding: 5px 12px;
+}
+
+.site-header .top-nav a:hover,
+.site-header .top-nav a[aria-current="page"] {
+  background: rgba(164, 189, 152, 0.08);
+  border-color: rgba(182, 198, 151, 0.16);
+  color: #d5dfc6;
+}
+
+@media (max-width: 640px) {
+  .site-header .header-inner {
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 0 5px;
+  }
+
+  .site-header .brand-image {
+    height: 46px;
+    width: 46px;
+  }
+
+  .site-header .brand-name {
+    font-size: 1.55rem;
+  }
+
+  .site-header .brand-byline {
+    font-size: 0.5rem;
+  }
+
+  .site-header .top-nav {
+    gap: 0;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .site-header .top-nav a {
+    font-size: 0.88rem;
+    padding-inline: 9px;
+  }
+}
