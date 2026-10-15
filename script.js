@@ -715,6 +715,12 @@ loadSiteContent()
         return;
       }
 
+      const aboutPage = page.slug === 'about';
+      pageDetail.classList.toggle('about-article-card', aboutPage);
+      pageDetail.closest('.article-container')?.classList.toggle(
+        'about-article-container',
+        aboutPage
+      );
       document.title = `${page.title} — Jopism`;
       pageDetail.innerHTML = `
         <p class="post-meta">From the original Jopism site</p>
