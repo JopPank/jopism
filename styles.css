@@ -1557,3 +1557,255 @@ a.category-card:hover {
 .error-message {
   color: #ffb4a9;
 }
+
+:root {
+  color-scheme: dark;
+  --bg: #101713;
+  --bg-alt: #151e18;
+  --panel: #19231c;
+  --panel-soft: #1d2921;
+  --text: #e6e9df;
+  --muted: #a5afa1;
+  --primary: #a4bd98;
+  --primary-strong: #c0d1ad;
+  --accent: #b6c697;
+  --border: rgba(217, 229, 210, 0.14);
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(70, 100, 73, 0.18), transparent 38rem),
+    radial-gradient(ellipse at 94% 40%, rgba(59, 83, 62, 0.1), transparent 36rem),
+    linear-gradient(145deg, #101713 0%, #121b15 52%, #0e1511 100%);
+  color: var(--text);
+}
+
+body::before {
+  animation: none;
+  background-image:
+    radial-gradient(rgba(235, 240, 226, 0.045) 0.55px, transparent 0.75px),
+    radial-gradient(ellipse at 70% 15%, rgba(120, 147, 103, 0.08), transparent 38%);
+  background-size: 5px 5px, 100% 100%;
+  opacity: 0.34;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.site-header {
+  background: rgba(16, 23, 19, 0.92);
+  border-color: var(--border);
+}
+
+.brand-image {
+  border-color: var(--border);
+  box-shadow: 0 0 24px rgba(145, 170, 126, 0.1);
+}
+
+.brand-byline,
+.top-nav a:hover,
+.top-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.top-nav a:hover,
+.top-nav a[aria-current="page"] {
+  background: rgba(164, 189, 152, 0.1);
+}
+
+.skip-link {
+  background: var(--accent);
+  color: #182019;
+}
+
+.hero-copy,
+.home-about-card,
+.interest-card,
+.sports-score-card,
+.interest-detail-card,
+.golf-round,
+.category-card,
+.post-card,
+.article-card {
+  background: var(--panel);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.home-about-card {
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(96, 125, 85, 0.12), transparent 54%),
+    linear-gradient(135deg, #1a251d, #151e18);
+}
+
+.section.alt,
+.sports-scores-section {
+  background: rgba(20, 29, 23, 0.78);
+}
+
+.interests-section {
+  background:
+    radial-gradient(ellipse at 92% 20%, rgba(99, 132, 81, 0.1), transparent 38rem),
+    rgba(17, 25, 20, 0.62);
+}
+
+.interest-card,
+.interest-card:nth-child(2),
+.interest-card:nth-child(3),
+.interest-card:nth-child(4) {
+  --interest-accent: var(--accent);
+  background: linear-gradient(160deg, #1d2921, #172019);
+  border-color: var(--border);
+}
+
+.interest-card:hover,
+.post-card:hover {
+  border-color: rgba(182, 198, 151, 0.42);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.36), 0 0 24px rgba(132, 158, 112, 0.08);
+}
+
+.interest-card-image {
+  background: #202c23;
+  filter: saturate(0.82) brightness(0.9);
+}
+
+.interest-card-content > p:not(.interest-label) {
+  color: var(--muted);
+}
+
+.sports-scores-section {
+  border-color: var(--border);
+}
+
+.sports-score-card-heading a,
+.interest-link,
+.stats-source a,
+.kitchen-gear-grid a,
+.kitchen-gear-list a,
+.platform-list a,
+.post-card h3 a,
+.post-card .text-link,
+.section-action a,
+.footer-inner a,
+.back-link a,
+.article-content a,
+.video-source-link {
+  color: var(--primary-strong);
+}
+
+.interest-detail-card {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(102, 132, 86, 0.08), transparent 30rem),
+    #19231c;
+}
+
+.cookbook-cta {
+  background: linear-gradient(120deg, #526a4d, #344936);
+  border-color: rgba(186, 205, 166, 0.25);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.cookbook-cta:hover {
+  background: linear-gradient(120deg, #617c58, #3e5540);
+}
+
+.meal-photo-grid img,
+.kitchen-gear-grid img {
+  border-color: var(--border);
+}
+
+.kitchen-gear-grid img {
+  background: #202a22;
+}
+
+.race-results-heading,
+.golf-round-course,
+.golf-handicap-label,
+.golf-handicap-method,
+.race-result > :last-child,
+.platform-list li > span,
+.golf-round-category-labels,
+.golf-round-meta {
+  color: var(--text);
+}
+
+.golf-round-score {
+  color: #d2d9cb;
+}
+
+.golf-round-to-par {
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.golf-chart-baseline {
+  stroke: #657166;
+}
+
+.golf-chart-marker {
+  fill: var(--panel);
+}
+
+.golf-chart-badge {
+  fill: #202a22;
+}
+
+.golf-chart-badge-text.is-neutral {
+  fill: var(--muted);
+}
+
+.golf-handicap {
+  background: rgba(145, 170, 126, 0.09);
+  border-color: var(--border);
+}
+
+.arccos-badge {
+  background: #28372b;
+}
+
+.post-card {
+  background: linear-gradient(145deg, #1d2921, #172019);
+}
+
+.post-card:nth-child(3n)::before {
+  background: linear-gradient(90deg, #9aab84, transparent);
+}
+
+.post-card .thumb {
+  background:
+    radial-gradient(circle at 76% 24%, rgba(220, 229, 208, 0.12), transparent 12%),
+    linear-gradient(135deg, #304234, #647650 48%, #26372b);
+  color: #e6e9df;
+}
+
+.search-input {
+  background: var(--panel);
+  color: var(--text);
+}
+
+.category-filter {
+  color-scheme: dark;
+}
+
+.article-card {
+  background: rgba(25, 35, 28, 0.94);
+}
+
+.about-portrait,
+.embed-link {
+  background: rgba(145, 170, 126, 0.08);
+}
+
+.site-footer {
+  background: rgba(12, 18, 14, 0.42);
+}
+
+:focus-visible {
+  outline-color: var(--accent);
+}

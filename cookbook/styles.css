@@ -301,3 +301,202 @@ body > header.cookbook-header select:focus {
 #recipeDialog::backdrop {
     background: rgb(27 41 32 / 55%);
 }
+
+:root {
+    color-scheme: dark;
+    --bg-primary: #101713;
+    --bg-card: #19231c;
+    --text-main: #e6e9df;
+    --text-muted: #a5afa1;
+    --accent: #b6c697;
+    --border-subtle: rgb(217 229 210 / 14%);
+}
+
+body {
+    background:
+        radial-gradient(rgb(235 240 226 / 3.5%) 0.55px, transparent 0.75px) 0 0 / 5px 5px,
+        radial-gradient(ellipse at 18% 0%, rgb(70 100 73 / 18%), transparent 38rem),
+        radial-gradient(ellipse at 94% 40%, rgb(59 83 62 / 10%), transparent 36rem),
+        linear-gradient(145deg, #101713 0%, #121b15 52%, #0e1511 100%) !important;
+    color: var(--text-main) !important;
+    color-scheme: dark;
+}
+
+body > header.cookbook-header {
+    background: rgb(20 29 23 / 94%) !important;
+    border-color: var(--border-subtle) !important;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 22%) !important;
+}
+
+body > header.cookbook-header h1,
+body > header.cookbook-header a:hover {
+    color: var(--accent) !important;
+}
+
+body > header.cookbook-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+body > header.cookbook-header a {
+    color: var(--text-muted) !important;
+}
+
+body > header.cookbook-header input,
+body > header.cookbook-header select {
+    background: #101713 !important;
+    border-color: var(--border-subtle) !important;
+    color: var(--text-main) !important;
+}
+
+body > header.cookbook-header input:focus,
+body > header.cookbook-header select:focus {
+    border-color: var(--accent) !important;
+}
+
+.site-header {
+    background: rgb(16 23 19 / 92%);
+    border-color: var(--border-subtle);
+}
+
+.site-header .brand-image {
+    border-color: var(--border-subtle);
+    box-shadow: 0 0 24px rgb(145 170 126 / 10%);
+}
+
+.site-header .brand-name {
+    color: var(--text-main);
+}
+
+.site-header .top-nav a {
+    color: var(--text-muted);
+}
+
+.site-header .brand-byline,
+.site-header .top-nav a:hover,
+.site-header .top-nav a[aria-current="page"] {
+    color: var(--accent);
+}
+
+.site-header .top-nav a:hover,
+.site-header .top-nav a[aria-current="page"] {
+    background: rgb(164 189 152 / 10%);
+}
+
+.skip-link {
+    background: var(--accent);
+    color: #182019;
+}
+
+#recipeGrid article {
+    background: linear-gradient(160deg, #1d2921, #172019) !important;
+    border-color: var(--border-subtle) !important;
+    box-shadow: 0 18px 44px rgb(0 0 0 / 28%);
+}
+
+#recipeGrid article:hover {
+    border-color: rgb(182 198 151 / 42%) !important;
+    box-shadow: 0 22px 48px rgb(0 0 0 / 36%), 0 0 24px rgb(132 158 112 / 8%);
+}
+
+#recipeGrid article h2,
+#recipeGrid article p,
+#recipeGrid article li {
+    color: var(--text-main) !important;
+}
+
+#recipeGrid article h3,
+#recipeGrid article .text-slate-400,
+#recipeGrid article .text-slate-300 {
+    color: var(--text-muted) !important;
+}
+
+#recipeGrid article .text-amber-400,
+#recipeGrid article .text-amber-100,
+#recipeDialog h2,
+#recipeDialog h3,
+#recipeDialog .text-amber-400,
+#recipeDialog .text-amber-100 {
+    color: var(--accent) !important;
+}
+
+#recipeGrid article .border-amber-400\/20,
+#recipeGrid article .border-amber-400\/30,
+#recipeDialog .border-amber-400\/30 {
+    border-color: rgb(182 198 151 / 26%) !important;
+}
+
+#recipeGrid article .bg-amber-400\/10,
+#recipeDialog .bg-amber-400\/10 {
+    background: rgb(182 198 151 / 10%) !important;
+}
+
+#recipeGrid article .bg-slate-900\/50,
+#recipeDialog .bg-slate-900\/50 {
+    background: #121b15 !important;
+}
+
+#recipeGrid article .border-slate-700\/50,
+#recipeGrid article .border-slate-700,
+#recipeDialog .border-slate-700 {
+    border-color: var(--border-subtle) !important;
+}
+
+#recipeGrid article button,
+#recipeDialog button {
+    background: #526a4d !important;
+    color: #f0f2eb !important;
+}
+
+#recipeGrid article button:hover,
+#recipeDialog button:hover {
+    background: #617c58 !important;
+    color: #fff !important;
+}
+
+.recipe-photo-placeholder {
+    background:
+        linear-gradient(145deg, rgb(96 125 85 / 12%), transparent 70%),
+        #172019;
+    border-color: var(--border-subtle) !important;
+    color: var(--text-muted) !important;
+}
+
+#recipeDialog {
+    background: #19231c !important;
+    border-color: var(--border-subtle) !important;
+    color: var(--text-main) !important;
+    box-shadow: 0 24px 70px rgb(0 0 0 / 48%);
+}
+
+#recipeDialog > div:first-child {
+    border-color: var(--border-subtle) !important;
+}
+
+#recipeDialog p,
+#recipeDialog li,
+#recipeDialog dd,
+#recipeDialog .text-slate-100,
+#recipeDialog .text-slate-200 {
+    color: var(--text-main) !important;
+}
+
+#recipeDialog .text-slate-300,
+#recipeDialog .text-slate-400 {
+    color: var(--text-muted) !important;
+}
+
+#recipeDialog .bg-slate-700 {
+    background: #26342a !important;
+}
+
+#recipeDialog::backdrop {
+    background: rgb(5 9 6 / 76%);
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline-color: var(--accent);
+}

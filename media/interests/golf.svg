@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Golf course</title>
+  <desc id="desc">A dark topographic course map showing a golf hole from tee to green.</desc>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1">
+      <stop stop-color="#202e25"/>
+      <stop offset="1" stop-color="#111a15"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#c6d2b8" stroke-opacity=".055"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="405" fill="url(#ground)"/>
+  <rect width="720" height="405" fill="url(#grid)"/>
+  <g fill="none" stroke="#9daf8d" stroke-opacity=".2" stroke-width="1.5">
+    <path d="M-35 100c68-42 121-44 174-8s87 42 137 18 92-63 154-46 100 40 161 15 90-54 164-32"/>
+    <path d="M-42 120c70-44 126-44 178-8s86 42 136 18 94-62 155-45 100 40 161 15 89-52 163-31"/>
+    <path d="M-48 141c74-46 132-46 183-9s84 41 135 17 96-62 157-44 99 40 159 15 87-51 162-31"/>
+    <path d="M-29 283c69-44 125-43 181-8s95 43 153 16 95-62 151-44 100 35 159 10 93-52 161-28"/>
+    <path d="M-38 305c72-46 128-44 185-9s95 43 154 16 96-62 152-44 100 35 159 10 92-50 160-27"/>
+    <path d="M-47 328c74-47 132-46 189-10s96 43 155 16 97-62 154-44 99 35 158 10 91-50 160-26"/>
+  </g>
+  <path d="M111 275c44-47 91-30 134-74s80-75 134-49 79 65 132 48 76-76 141-63l25 48c-56-9-85 54-145 70s-108-17-152-38-81 15-112 52-87 44-142 89Z" fill="#78906d" fill-opacity=".19" stroke="#9daf8d" stroke-opacity=".36" stroke-width="1.5"/>
+  <path d="M117 268c59-39 90-32 135-72s76-68 127-43 79 60 132 43 77-67 132-59" fill="none" stroke="#c0ce9d" stroke-dasharray="2 11" stroke-linecap="round" stroke-width="2"/>
+  <path d="M473 175c12-18 37-23 56-14s28 29 17 45-37 22-56 13-29-28-17-44Z" fill="#9daf8d" fill-opacity=".12" stroke="#b9c89a" stroke-opacity=".55" stroke-width="1.5"/>
+  <path d="M509 185v-44l27 9-27 9" fill="none" stroke="#d6dfcb" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <circle cx="117" cy="268" r="7" fill="#17221a" stroke="#b9c89a" stroke-width="2"/>
+  <circle cx="509" cy="185" r="5" fill="#c0ce9d"/>
+  <g fill="#d6dfcb" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="2">
+    <text x="86" y="305">TEE / 01</text>
+    <text x="533" y="207">GREEN / 18</text>
+  </g>
+  <path d="M64 52h42M64 52v42M656 353h-42m42 0v-42" fill="none" stroke="#b9c89a" stroke-opacity=".42"/>
+  <text x="656" y="65" fill="#9daf8d" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="2" text-anchor="end">COURSE STUDY</text>
+</svg>
