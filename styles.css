@@ -347,7 +347,7 @@ h1 {
 
 .interest-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -368,22 +368,73 @@ h1 {
   animation: tile-arrive 520ms both;
 }
 
-.interest-card:nth-child(2) {
+.interest-golf {
   --interest-accent: #b58436;
   background: linear-gradient(160deg, #fffefa, #f7f0e3);
-  animation-delay: 70ms;
 }
 
-.interest-card:nth-child(3) {
+.interest-cooking {
   --interest-accent: #526cb2;
   background: linear-gradient(160deg, #fff, #edf1fa);
+}
+
+.interest-triathlon {
+  --interest-accent: #31864a;
   animation-delay: 140ms;
 }
 
-.interest-card:nth-child(4) {
-  --interest-accent: #a9623f;
-  background: linear-gradient(160deg, #fff, #f8eee8);
-  animation-delay: 210ms;
+.interest-golf {
+  animation-delay: 70ms;
+}
+
+.interest-cooking {
+  animation-delay: 140ms;
+}
+
+.interest-gear-wide {
+  align-items: center;
+  flex-direction: row;
+  grid-column: 1 / -1;
+  gap: clamp(18px, 3vw, 42px);
+  min-height: 210px;
+  padding: 28px clamp(24px, 4vw, 52px);
+}
+
+.interest-gear-wide .interest-card-image {
+  aspect-ratio: 1;
+  flex: 0 0 clamp(120px, 16vw, 190px);
+  max-width: 190px;
+  object-fit: contain;
+}
+
+.interest-gear-heading,
+.interest-gear-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.interest-gear-heading h3 {
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  margin: 0;
+}
+
+.interest-gear-copy > p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.interest-gear .interest-label {
+  margin-bottom: 8px;
+}
+
+.interest-card-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.interest-card-actions .interest-link {
+  margin-top: 0;
 }
 
 .interest-card:hover {
@@ -401,8 +452,13 @@ h1 {
   width: 100%;
 }
 
-.interest-jopathlon .interest-card-image {
-  background: #101813;
+.interest-gear {
+  --interest-accent: #238451;
+  background: linear-gradient(160deg, #fff, #e8f2ec);
+}
+
+.interest-gear .interest-card-image {
+  background: transparent;
   object-fit: contain;
 }
 
@@ -1196,6 +1252,30 @@ h1 {
     aspect-ratio: 16 / 8;
   }
 
+  .interest-gear-wide {
+    flex-direction: column;
+    gap: 10px;
+    grid-column: auto;
+    padding: 22px;
+  }
+
+  .interest-gear-wide .interest-card-image {
+    aspect-ratio: 1;
+    flex: initial;
+    max-width: 150px;
+    width: 100%;
+  }
+
+  .interest-gear-heading,
+  .interest-gear-copy {
+    flex: initial;
+    text-align: center;
+  }
+
+  .interest-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .post-grid,
   .category-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1710,9 +1790,10 @@ h3 {
 }
 
 .interest-card,
-.interest-card:nth-child(2),
-.interest-card:nth-child(3),
-.interest-card:nth-child(4) {
+.interest-golf,
+.interest-cooking,
+.interest-triathlon,
+.interest-gear {
   --interest-accent: var(--accent);
   background: linear-gradient(160deg, #1d2921, #172019);
   border-color: var(--border);

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gear Locker — jopism</title>
+  <meta name="description" content="A photo-filled index of the golf, endurance, kitchen, technology, and workshop gear used at Jopism.">
+  <link rel="icon" href="media/branding/jopism-favicon.svg" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            jopBg: '#1B2B22',
+            jopBgDark: '#121e18',
+            jopCard: '#21352A',
+            jopCardBorder: '#2e493a',
+            jopCardHover: '#2a4436',
+            jopAccent: '#34d399',
+            jopAccentMuted: '#059669',
+            jopTextMuted: '#94a3b8',
+            jopGold: '#e5bf70',
+            jopGoldHover: '#f0ce88'
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'Georgia', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .gear-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    a.gear-card {
+      color: inherit;
+      text-decoration: none;
+    }
+    a.gear-card:focus-visible {
+      outline: 2px solid #d9b66f;
+      outline-offset: 3px;
+    }
+    .gear-card.hidden-card {
+      display: none;
+    }
+    .gear-visual {
+      margin: -1.5rem -1.5rem 1.25rem;
+      overflow: hidden;
+      background: linear-gradient(145deg, #17271e, #304b39);
+      aspect-ratio: 16 / 10;
+    }
+    .gear-visual a,
+    .gear-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .gear-visual img {
+      object-fit: cover;
+    }
+    .gear-visual.is-pair > div {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: 100%;
+    }
+    .gear-visual.is-pair img {
+      object-fit: contain;
+      padding: 0.5rem;
+      background: #fff;
+    }
+    .gear-visual.is-centered > div {
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+    .gear-visual.is-centered img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .gear-visual-note {
+      display: none;
+      color: #d0dfd3;
+      font: 500 0.65rem 'JetBrains Mono', monospace;
+      letter-spacing: 0.08em;
+      padding: 0.4rem 0.75rem;
+      position: absolute;
+      right: 0.6rem;
+      bottom: 0.6rem;
+      text-transform: uppercase;
+      background: rgba(18, 30, 24, 0.82);
+      border: 1px solid #49624f;
+      border-radius: 999px;
+    }
+    .gear-visual.is-illustration {
+      position: relative;
+    }
+    .gear-visual.is-illustration .gear-visual-note {
+      display: block;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #121e18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2e493a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #34d399;
+    }
+  </style>
+</head>
+<body id="top" class="bg-jopBg text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-jopGold selection:text-jopBg">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-jopGold focus:px-4 focus:py-2 focus:text-jopBg">Skip to content</a>
+  <!-- Main Navigation -->
+  <nav class="border-b border-jopCardBorder/80 bg-jopBgDark/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="group flex flex-col">
+        <span class="font-serif text-2xl font-bold tracking-tight text-white group-hover:text-jopGold transition-colors">
+          jopism
+        </span>
+        <span class="text-[10px] font-mono tracking-widest text-jopGold/80 uppercase">
+          Curiosity in all directions
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="videos.html" class="hover:text-jopGold transition-colors">Videos</a>
+        <a href="cookbook/index.html" class="hover:text-jopGold transition-colors">Recipes</a>
+        <a href="the_gear_locker.html" aria-current="page" class="text-jopGold font-semibold border-b-2 border-jopGold pb-0.5">Gear Locker</a>
+        <a href="https://jopathlon.jopism.com/" class="hover:text-jopGold transition-colors">Jopathlon</a>
+        <a href="page.html?slug=about" class="hover:text-jopGold transition-colors">About</a>
+        <a href="mailto:jop.pankratz@gmail.com" class="hover:text-jopGold transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg bg-jopCard border border-jopCardBorder text-gray-300 hover:text-white">
+        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-jopBgDark border-b border-jopCardBorder px-4 pt-2 pb-6 space-y-3 text-sm">
+      <a href="videos.html" class="block py-2 text-gray-300 hover:text-jopGold">Videos</a>
+      <a href="cookbook/index.html" class="block py-2 text-gray-300 hover:text-jopGold">Recipes</a>
+      <a href="the_gear_locker.html" aria-current="page" class="block py-2 text-jopGold font-semibold">Gear Locker</a>
+      <a href="https://jopathlon.jopism.com/" class="block py-2 text-gray-300 hover:text-jopGold">Jopathlon</a>
+      <a href="page.html?slug=about" class="block py-2 text-gray-300 hover:text-jopGold">About</a>
+      <a href="mailto:jop.pankratz@gmail.com" class="block py-2 text-gray-300 hover:text-jopGold">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="pt-16 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-4">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jopCard border border-jopCardBorder text-jopGold text-xs font-semibold tracking-widest uppercase shadow-sm">
+      <span class="w-1.5 h-1.5 rounded-full bg-jopGold animate-pulse"></span>
+      Equipment Index & Tech Stack
+    </div>
+
+    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+      The Gear Locker
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+      A curated index of the tools, tech, and equipment I rely on—from the fairway to the kitchen line.
+    </p>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 flex-grow w-full">
+
+    <!-- Interactive Filter Bar -->
+    <div class="flex items-center justify-center mb-12">
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-jopBgDark p-2 rounded-2xl border border-jopCardBorder/80 shadow-xl max-w-full">
+        
+        <button onclick="filterGear('all')" data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-jopGold text-jopBg font-semibold shadow-md">
+          All Gear
+        </button>
+        
+        <button onclick="filterGear('golf')" data-filter="golf" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all text-gray-300 hover:text-white hover:bg-jopCard">
+          Golf
+        </button>
+
+        <button onclick="filterGear('endurance')" data-filter="endurance" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all text-gray-300 hover:text-white hover:bg-jopCard">
+          Endurance
+        </button>
+
+        <button onclick="filterGear('kitchen')" data-filter="kitchen" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all text-gray-300 hover:text-white hover:bg-jopCard">
+          Kitchen
+        </button>
+
+        <button onclick="filterGear('tech')" data-filter="tech" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all text-gray-300 hover:text-white hover:bg-jopCard">
+          Smart Home & Tech
+        </button>
+
+        <button onclick="filterGear('workshop')" data-filter="workshop" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all text-gray-300 hover:text-white hover:bg-jopCard">
+          Workshop & Lawn
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Gear Cards Grid -->
+    <div id="gearGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+
+      <!-- ================= GOLF ITEMS ================= -->
+      
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · CLUBS</span>
+            <span class="text-xs text-gray-400 font-mono">Irons & Wedges</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Callaway Elyte Irons & Wedges</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Callaway Elyte irons and Callaway wedges for consistent ball flight, clean turf interaction, and precise scoring shots.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · WOODS</span>
+            <span class="text-xs text-gray-400 font-mono">Tee & Fairway</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Callaway Epic Speed Driver & 3-Wood</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Jailbreak AI Frame engineering that optimizes ball speeds and stability off the tee and long approach shots.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · PUTTER</span>
+            <span class="text-xs text-gray-400 font-mono">Flat Stick</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">TaylorMade Spider Ghost Putter</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            High MOI mallet design offering outstanding roll stability and high-contrast alignment on crucial putts.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · BAG</span>
+            <span class="text-xs text-gray-400 font-mono">14 Dividers</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Callaway Org 14 Cart Bag (Grey)</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Streamlined storage with Lowrider cart integration and full-length dividers to keep clubs pristine and silent.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · FOOTWEAR</span>
+            <span class="text-xs text-gray-400 font-mono">7-Cleat TPU</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Adidas Men's Tour360 Spiked Shoes</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Waterproof leather with 360Wrap support for maximum ground connection and power transfer throughout the swing.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · BALLS</span>
+            <span class="text-xs text-gray-400 font-mono">Tour Performance</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Callaway Chrome Tour Golf Balls</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Precision Technology providing soft feel off irons and maximum distance with low spin off the driver.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · TECH</span>
+            <span class="text-xs text-gray-400 font-mono">Strokes Gained</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Arccos Smart Sensors + Link Pro</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Hands-free automatic shot tracking providing real-time distance data and Strokes Gained tour analytics.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · GPS</span>
+            <span class="text-xs text-gray-400 font-mono">Launch Monitor</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Garmin Approach G80 GPS</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            All-in-one handheld device featuring full-color course mapping alongside integrated radar launch monitoring.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="golf">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">GOLF · RANGEFINDER</span>
+            <span class="text-xs text-gray-400 font-mono">Pin Lock</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Redtiger Laser Rangefinder</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Rapid slope-adjusted distance targeting with vibration feedback for instant flag identification.
+          </p>
+        </div>
+      </article>
+
+
+      <!-- ================= ENDURANCE ITEMS ================= -->
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · BIKE</span>
+            <span class="text-xs text-gray-400 font-mono">2013 Edition</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">2013 Giant Defy 1 Road Bike</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Lightweight ALUXX SL aluminum endurance geometry frame paired with precise Shimano drivetrain componentry.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · CYCLING</span>
+            <span class="text-xs text-gray-400 font-mono">Telemetry</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Garmin Edge Bike Computer</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Crisp real-time display for speed, cadence, turn-by-turn routing, and power output telemetry.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · RUNNING</span>
+            <span class="text-xs text-gray-400 font-mono">Indoor Work</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">NordicTrack Treadmill</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            High-incline training bed used for year-round race pacing, threshold repeats, and marathon maintenance.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · SWIM</span>
+            <span class="text-xs text-gray-400 font-mono">Open Water</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">2XU Propel:2 Wetsuit</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Flexible neoprene shoulder panels with rollbar technology to optimize core buoyancy during triathlons.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · SWIM</span>
+            <span class="text-xs text-gray-400 font-mono">Anti-Fog</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Arena Cobra Tri Swipe Goggles</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            3D gasket seal with wide optics and finger-swipe anti-fog restoration for bright open-water swims.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · WEARABLE</span>
+            <span class="text-xs text-gray-400 font-mono">Multisport</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Garmin Forerunner 945 Watch</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Dedicated triathlon watch providing heart rate dynamics, VO2 max estimation, and full color offline mapping.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="endurance">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">ENDURANCE · FUEL</span>
+            <span class="text-xs text-gray-400 font-mono">Hydration</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">LMNT Electrolytes & Honey Stinger</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Zero-sugar sodium replenishment paired with organic honey chews for sustained effort during long sessions.
+          </p>
+        </div>
+      </article>
+
+
+      <!-- ================= KITCHEN ITEMS ================= -->
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://knifewear.com/" target="_blank" rel="noopener noreferrer" aria-label="View KnifeWear Japanese Steel Knives at Knifewear" data-category="kitchen">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">KITCHEN · PREP</span>
+            <span class="text-xs text-gray-400 font-mono">Japanese Steel</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">KnifeWear Japanese Steel Knives</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Hand-forged Japanese cutlery paired with an end-grain wood cutting board for smooth daily prep work.
+          </p>
+        </div>
+      </a>
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://searchandrescuedenim.com/products/gold-label-strathcona-apron" target="_blank" rel="noopener noreferrer" aria-label="View the Strathcona Apron at Search & Rescue Denim" data-category="kitchen">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">KITCHEN · APPAREL</span>
+            <span class="text-xs text-gray-400 font-mono">Strathcona</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Search & Rescue Strathcona Apron</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Heavy-duty canvas and leather construction built to withstand high-heat grilling and long kitchen prep lines.
+          </p>
+        </div>
+      </a>
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://www.chefsteps.com/en-us/product/bsv600?sku=BSV600PSS1BNA1" target="_blank" rel="noopener noreferrer" aria-label="View the Joule Turbo Sous Vide Circulator at ChefSteps" data-category="kitchen">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">KITCHEN · COOKING</span>
+            <span class="text-xs text-gray-400 font-mono">Precision Tech</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Joule Turbo Sous Vide Circulator</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Ultra-compact immersion circulator providing exact degree-level temperature control for perfect proteins.
+          </p>
+        </div>
+      </a>
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://amer.weber.com/en-ca/products/master-touch-charcoal-grill-22-black-14501001" target="_blank" rel="noopener noreferrer" aria-label="View the Weber Master-Touch Kettle at Weber" data-category="kitchen">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">KITCHEN · GRILLING</span>
+            <span class="text-xs text-gray-400 font-mono">Charcoal</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Weber 22" Master-Touch Kettle</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Classic porcelain-enameled charcoal kettle used for indirect smoking, high-heat searing, and wood-chip cooks.
+          </p>
+        </div>
+      </a>
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://www.weber.com/CA/en/gas/genesis/1500015.html" target="_blank" rel="noopener noreferrer" aria-label="View the Weber Genesis S-315 Gas Grill at Weber" data-category="kitchen">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">KITCHEN · OUTDOOR</span>
+            <span class="text-xs text-gray-400 font-mono">Natural Gas</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Weber Genesis S-315 Gas Grill</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Stainless steel three-burner setup delivering rapid preheats and even heat distribution across large cooks.
+          </p>
+        </div>
+      </a>
+
+
+      <!-- ================= SMART HOME & TECH ITEMS ================= -->
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="tech">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">TECH · COMPUTING</span>
+            <span class="text-xs text-gray-400 font-mono">Workstation</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">HP OmniBook Laptop</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Primary production power-horse for development, video edits, data analysis, and general productivity.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="tech">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">TECH · MOBILE</span>
+            <span class="text-xs text-gray-400 font-mono">Daily Phone</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Google Pixel 9</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Clean stock Android interface paired with exceptional computational photography and on-device AI tools.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="tech">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">SMART HOME · HUB</span>
+            <span class="text-xs text-gray-400 font-mono">Display</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Google Nest Hub</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Centralized kitchen & home dashboard for hands-free timers, media streaming, and smart home routines.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="tech">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">SMART HOME · SECURITY</span>
+            <span class="text-xs text-gray-400 font-mono">Nest Suite</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Google Nest Cameras & Doorbell</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Full perimeter monitoring with intelligent event alerts across Nest Floodlight, Outdoor Cam, and Doorbell.
+          </p>
+        </div>
+      </article>
+
+      <article class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" data-category="tech">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">TECH · AUDIO & MEDIA</span>
+            <span class="text-xs text-gray-400 font-mono">4K Streamer</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Google TV Streamer 4K & Pixel Buds</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Snappy 4K HDR home entertainment streaming combined with seamless active noise-canceling earbud audio.
+          </p>
+        </div>
+      </article>
+
+
+      <!-- ================= WORKSHOP & LAWN ITEMS ================= -->
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://egopowerplus.com/22-inch-aluminum-deck-self-propelled-lawn-mower-lm2200sp/" target="_blank" rel="noopener noreferrer" aria-label="View the EGO Power+ Lawn Mower at EGO" data-category="workshop">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">LAWN · CARE</span>
+            <span class="text-xs text-gray-400 font-mono">56V Battery</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">EGO Power+ Lawn Mower</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            High-torque 56V battery power delivering quiet gas-equivalent cutting performance with zero emissions.
+          </p>
+        </div>
+      </a>
+
+      <a class="gear-card bg-jopCard border border-jopCardBorder hover:border-jopGold/50 rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40" href="https://www.dewalt.com/en-us/product/dck751p1/20v-max-7-tool-combo-kit" target="_blank" rel="noopener noreferrer" aria-label="View the DeWalt 20V MAX Tool Suite at DeWalt" data-category="workshop">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono tracking-widest font-bold uppercase px-2.5 py-1 rounded bg-jopBgDark text-jopGold border border-jopCardBorder">WORKSHOP · TOOLS</span>
+            <span class="text-xs text-gray-400 font-mono">20V MAX</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">DeWalt 20V MAX Tool Suite</h3>
+          <p class="text-sm text-gray-300 leading-relaxed font-light">
+            Comprehensive cordless system including brushless drills, impact drivers, circular saws, and orbital sanders.
+          </p>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-jopCardBorder bg-jopBgDark py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-400">
+      <div class="flex items-center gap-2">
+        <span class="text-jopGold font-serif text-base font-bold">jopism</span>
+        <span>© 2026 jopism.com · All rights reserved.</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="mailto:contact@jopism.com" class="hover:text-jopGold transition-colors">contact@jopism.com</a>
+        <a href="#top" class="hover:text-jopGold transition-colors flex items-center gap-1">
+          <span>Back to Top</span>
+          <span>↑</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JS Filtering & Interactivity Script -->
+  <script>
+    const gearPhotos = {
+      'Callaway Elyte Irons & Wedges': [{ src: 'https://prd-sfcc.callawaygolf.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_US/v1792215781770/sits/irons-2025-elyte/irons-2025-elyte___1.png?sfrm=png&sw=600', alt: 'Callaway Elyte irons' }],
+      'Callaway Epic Speed Driver & 3-Wood': [{ src: 'media/gear/callaway-epic-speed.jpg', alt: 'Callaway Epic Speed driver head' }],
+      'Callaway Org 14 Cart Bag (Grey)': [{ src: 'media/gear/callaway-org14.png', alt: 'Grey Callaway Org 14 golf cart bag' }],
+      'Callaway Chrome Tour Golf Balls': [{ src: 'media/gear/chrome-tour.jpg', alt: 'Callaway Chrome Tour golf ball and package' }],
+      "Adidas Men's Tour360 Spiked Shoes": [{ src: 'media/gear/adidas-tour360.png', alt: 'White Adidas Tour360 spiked golf shoes with blue stripes' }],
+      'HP OmniBook Laptop': [{ src: 'media/gear/omnibook.png', alt: 'HP OmniBook laptop' }],
+      'TaylorMade Spider Ghost Putter': [{ src: 'media/gear/spyder-ghost.png', alt: 'TaylorMade Spider Ghost mallet putter' }],
+      'Arccos Smart Sensors + Link Pro': [{ src: 'media/gear/arccos.jpg', alt: 'Arccos Link Pro golf shot-tracking sensor in use' }],
+      'Arena Cobra Tri Swipe Goggles': [{ src: 'media/gear/arena.png', alt: 'Arena Cobra Tri Swipe swimming goggles' }],
+      'Redtiger Laser Rangefinder': [{ src: 'media/gear/redtiger.jpg', alt: 'Redtiger laser golf rangefinder' }],
+      'Garmin Approach G80 GPS': [{ src: 'https://www.garmin.com.sg/m/sg/g/products/ApproachG80-image-01-EN.png', alt: 'Garmin Approach G80 handheld golf GPS' }],
+      '2013 Giant Defy 1 Road Bike': [{ src: 'https://images-archive.giant-bicycles.com/remote/www.giant-bicycles.com/_upload_us/bikes/models/xxl/2015/Defy-1-Black-White.jpg?width=800&height=600&quality=90&mode=none&bgcolor=white', alt: 'Giant Defy road bike' }],
+      'Garmin Edge Bike Computer': [{ src: 'https://res.garmin.com/en/products/010-02060-03/v/cf-lg-9d711c68-eb8f-409f-9ba0-a088b797854f.jpg', alt: 'Garmin Edge bike computer' }],
+      'NordicTrack Treadmill': [{ src: 'https://images.contentstack.io/v3/assets/blt40913d6edfec40cc/blte979d33eb3f345d2/66e9ef2ddce59146b9dc63c7/NTL39225_PLP.png', alt: 'NordicTrack treadmill' }],
+      '2XU Propel:2 Wetsuit': [{ src: 'media/gear/2xu-propel.webp', alt: '2XU Propel:2 triathlon wetsuit' }],
+      'Garmin Forerunner 945 Watch': [{ src: 'https://res.garmin.com/en/products/010-02063-10/v/cf-lg-a416e7ee-3d8d-4102-97f0-15ffd4bcda9b.jpg', alt: 'Garmin Forerunner 945 multisport watch' }],
+      'LMNT Electrolytes & Honey Stinger': [
+        { src: 'media/gear/lmnt-source.jpg', alt: 'LMNT electrolyte variety pack and drink mix packets' }
+      ],
+      'EGO Power+ Lawn Mower': [{ src: 'https://egopowerplus.com/media/catalog/product/l/m/lm2200sp_ego_mower_3q_shadow_23-1110_main_1000.png', alt: 'EGO Power+ cordless lawn mower' }],
+      'DeWalt 20V MAX Tool Suite': [{ src: 'https://assets.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/WHITEBG/DCK751P1_K1_1280.webp', alt: 'DeWalt 20V MAX cordless tool set' }],
+      'Google Pixel 9': [{ src: 'https://lh3.googleusercontent.com/-hd7ag271kSqQF2WRn3jXV3S2jVt-_nFga3bAqmGPXWbb2l-2R3f36_nO9INClVqmB81BNGVN7XUHaifUFzzUcrpFwha7hTS3U4z=rj-sc0xffffffff', alt: 'Google Pixel 9 phone' }],
+      'Google Nest Hub': [{ src: 'https://lh3.googleusercontent.com/8w4wX3gEAl2NNDsOjada6cJhffoTINe5b-eAm6fwZV-OQ9fj_woEboVh1MqPTllINdiR7xl2ICrSJvzzbibxojIoKMTfXKsQJkK-=c0xffffff-rj-sc0xffffffff', alt: 'Google Nest Hub smart display' }],
+      'Google Nest Cameras & Doorbell': [{ src: 'media/gear/nest-doorbell.png', alt: 'Google Nest doorbell camera' }],
+      'Google TV Streamer 4K & Pixel Buds': [
+        { src: 'https://lh3.googleusercontent.com/TQ3VHKHdvlpjlbE3woohVYFJrVBUgcVrCtHJN2xVFzkXEHNbqEiy1gS7vnxgUwHnRspROwVDgNWPUEWRxfCZC4j4mDaQD7DOACLe=rw-rj-sc0xffffffff', alt: 'Google TV Streamer 4K' },
+        { src: 'https://lh3.googleusercontent.com/MP4ymmRItYWpJsY0cjGQfkR38WYCvrqGWv8PF-sOJQwK0A9oM2u0sr-BKD2kq_SxImwincyudgTwJRiNF5UofQwXT0IljAXKq-Zm=rw-e365-w1200-rj-sc0xffffffff', alt: 'Google Pixel Buds Pro' }
+      ],
+      'KnifeWear Japanese Steel Knives': [
+        { src: 'media/kitchen/knives.jpg', alt: 'Japanese kitchen knives' },
+        { src: 'media/kitchen/cutting-board.jpg', alt: 'End-grain cutting board' }
+      ],
+      'Search & Rescue Strathcona Apron': [{ src: 'media/kitchen/apron.jpg', alt: 'Gold Label Strathcona apron' }],
+      'Joule Turbo Sous Vide Circulator': [{ src: 'media/kitchen/joule.png', alt: 'Joule Turbo sous vide circulator' }],
+      'Weber 22" Master-Touch Kettle': [{ src: 'media/kitchen/weber-master-touch.png', alt: 'Weber Master-Touch charcoal kettle grill' }],
+      'Weber Genesis S-315 Gas Grill': [{ src: 'media/kitchen/weber-genesis-s315.png', alt: 'Weber Genesis S-315 gas grill' }]
+    };
+
+    const gearCardLinks = {
+      'Callaway Elyte Irons & Wedges': { href: 'https://www.callawaygolf.com/golf-clubs/iron-sets/sets-2025-elyte-irons.html', brand: 'Callaway' },
+      'Callaway Epic Speed Driver & 3-Wood': { href: 'https://www.callawaygolf.com/', brand: 'Callaway' },
+      'TaylorMade Spider Ghost Putter': { href: 'https://www.taylormadegolf.com/', brand: 'TaylorMade' },
+      'Callaway Org 14 Cart Bag (Grey)': { href: 'https://www.callawaygolf.com/golf-bags/cart-bags/', brand: 'Callaway' },
+      "Adidas Men's Tour360 Spiked Shoes": { href: 'https://www.adidas.com/us/golf', brand: 'Adidas' },
+      'Callaway Chrome Tour Golf Balls': { href: 'https://www.callawaygolf.com/golf-balls/chrome-tour/', brand: 'Callaway' },
+      'Arccos Smart Sensors + Link Pro': { href: 'https://www.arccosgolf.com/products/arccos-link-pro', brand: 'Arccos' },
+      'Garmin Approach G80 GPS': { href: 'https://www.garmin.com.sg/products/intosports/approach-g80/', brand: 'Garmin' },
+      'Redtiger Laser Rangefinder': { href: 'https://www.redtigergolf.com/', brand: 'Redtiger' },
+      '2013 Giant Defy 1 Road Bike': { href: 'https://www.giant-bicycles.com/us/defy-1-2013', brand: 'Giant' },
+      'Garmin Edge Bike Computer': { href: 'https://www.garmin.com/en-ZA/p/621224/', brand: 'Garmin' },
+      'NordicTrack Treadmill': { href: 'https://www.nordictrack.com/treadmills', brand: 'NordicTrack' },
+      '2XU Propel:2 Wetsuit': { href: 'https://us.2xu.com/products/propel-2-wetsuit', brand: '2XU' },
+      'Garmin Forerunner 945 Watch': { href: 'https://www.garmin.com/en-US/p/621922', brand: 'Garmin' },
+      'LMNT Electrolytes & Honey Stinger': { href: 'https://drinklmnt.com/products/lmnt-recharge-variety-pack', brand: 'LMNT' },
+      'HP OmniBook Laptop': { href: 'https://www.hp.com/us-en/shop/vwa/laptops', brand: 'HP' },
+      'Google Pixel 9': { href: 'https://store.google.com/us/product/pixel_9', brand: 'Google' },
+      'Google Nest Hub': { href: 'https://store.google.com/us/product/nest_hub_2nd_gen', brand: 'Google' },
+      'Google Nest Cameras & Doorbell': { href: 'https://store.google.com/us/category/connected_home', brand: 'Google' },
+      'Google TV Streamer 4K & Pixel Buds': { href: 'https://store.google.com/us/product/google_tv_streamer', brand: 'Google' },
+      'Arena Cobra Tri Swipe Goggles': { href: 'https://www.arenasport.com/en_us/', brand: 'Arena' }
+    };
+
+    const gearColors = {
+      golf: ['#ca9d48', '#37634c'],
+      endurance: ['#67bde0', '#294d66'],
+      kitchen: ['#e4bf70', '#4c4130'],
+      tech: ['#68c6a1', '#294d53'],
+      workshop: ['#e48b59', '#5c4031']
+    };
+
+    function gearIllustration(title, category) {
+      const [accent, dark] = gearColors[category] || gearColors.tech;
+      const shortTitle = title.replace(/&/g, '+').slice(0, 26);
+      const detailedIcons = {
+        'Callaway Epic Speed Driver & 3-Wood': '<path d="m104 66 47 91m-47-91 13-7 9 17m61-2-12 105m12-105 13 2-1 19" fill="none" stroke="#edf5ed" stroke-linecap="round" stroke-width="7"/><path d="m136 156 28 12-18 12zm33 28 27-2 8-15-21-6z" fill="' + accent + '" stroke="#edf5ed" stroke-width="4"/>',
+        "Adidas Men's Tour360 Spiked Shoes": '<path d="M76 135c18-3 29-23 39-46l17 7c7 26 22 32 47 38l20 12c5 4 2 15-6 17H80c-11 0-17-17-4-28z" fill="none" stroke="#edf5ed" stroke-linejoin="round" stroke-width="7"/><path d="m113 105 35 12m-41 0 36 12m-35 0 37 12m-54 22 2 10m37-10 1 10m38-10-1 10" fill="none" stroke="' + accent + '" stroke-linecap="round" stroke-width="6"/>',
+        '2XU Propel:2 Wetsuit': '<path d="m104 52 31-12 31 12 25 30-19 16-16-16 6 83h-54l6-83-16 16-19-16z" fill="none" stroke="#edf5ed" stroke-linejoin="round" stroke-width="7"/><path d="M135 43v120m-28-67 28 20 28-20" fill="none" stroke="' + accent + '" stroke-width="6"/>',
+        'Arena Cobra Tri Swipe Goggles': '<path d="M68 92h41l8 9h36l8-9h41l-8 50c-3 17-17 25-34 17l-21-17h-8l-21 17c-17 8-31 0-34-17z" fill="none" stroke="#edf5ed" stroke-linejoin="round" stroke-width="7"/><path d="M78 103h31l6 31c-2 13-19 17-27 6zm114 0h-31l-6 31c2 13 19 17 27 6zM117 110h37" fill="none" stroke="' + accent + '" stroke-width="6"/>',
+        'HP OmniBook Laptop': '<rect x="82" y="47" width="106" height="91" rx="8" fill="none" stroke="' + accent + '" stroke-width="7"/><path d="M67 157h136l-12 16H79zM101 64h68v53h-68z" fill="none" stroke="#edf5ed" stroke-linejoin="round" stroke-width="6"/>'
+      };
+      const icon = detailedIcons[title] || (category === 'golf'
+        ? '<circle cx="170" cy="96" r="29" fill="none" stroke="' + accent + '" stroke-width="6"/><path d="M90 50v110m0 0-19 9m19-9 18 9M135 51l42 118m-42-118 17-4" fill="none" stroke="#edf5ed" stroke-linecap="round" stroke-width="8"/>'
+        : category === 'endurance'
+          ? '<circle cx="91" cy="132" r="35" fill="none" stroke="' + accent + '" stroke-width="6"/><circle cx="197" cy="132" r="35" fill="none" stroke="' + accent + '" stroke-width="6"/><path d="m91 132 36-51 34 51H91l29-39h41l36 39m-66-54h-21" fill="none" stroke="#edf5ed" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>'
+          : category === 'workshop'
+            ? '<path d="m81 73 18-18 24 24-18 18m-5-5 54 54-21 21-54-54m67-51 25-9 17 17-9 25-18-18-24 24-16-16 24-24z" fill="none" stroke="' + accent + '" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>'
+            : '<rect x="75" y="54" width="123" height="92" rx="12" fill="none" stroke="' + accent + '" stroke-width="7"/><path d="M61 163h151l-14 16H76zM100 73h73v53h-73z" fill="none" stroke="#edf5ed" stroke-linejoin="round" stroke-width="6"/>');
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 210"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="' + dark + '"/><stop offset="1" stop-color="#182820"/></linearGradient><radialGradient id="r"><stop stop-color="' + accent + '" stop-opacity=".3"/><stop offset="1" stop-color="' + accent + '" stop-opacity="0"/></radialGradient></defs><rect width="270" height="210" fill="url(#g)"/><circle cx="135" cy="92" r="104" fill="url(#r)"/><path d="M20 187h230" stroke="' + accent + '" stroke-opacity=".4"/><g>' + icon + '</g><text x="135" y="197" fill="#e8f0e8" font-family="Arial,sans-serif" font-size="11" letter-spacing="1.4" text-anchor="middle">' + shortTitle.replace(/</g, '&lt;') + '</text></svg>';
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+
+    function addGearImages() {
+      document.querySelectorAll('.gear-card').forEach(card => {
+        const title = card.querySelector('h3').textContent.trim();
+        const category = card.dataset.category;
+        const photos = gearPhotos[title] || [];
+        if (card.tagName !== 'A') {
+          const link = gearCardLinks[title];
+          if (!link) throw new Error('Missing brand link for gear card: ' + title);
+          const linkedCard = document.createElement('a');
+          Array.from(card.attributes).forEach(attribute => linkedCard.setAttribute(attribute.name, attribute.value));
+          linkedCard.href = link.href;
+          linkedCard.target = '_blank';
+          linkedCard.rel = 'noopener noreferrer';
+          linkedCard.setAttribute('aria-label', 'View ' + title + ' at ' + link.brand);
+          while (card.firstChild) linkedCard.append(card.firstChild);
+          card.replaceWith(linkedCard);
+          card = linkedCard;
+        }
+        const frame = document.createElement('figure');
+        frame.className = 'gear-visual' + (photos.length > 1 ? ' is-pair' : '');
+        if (title.startsWith('LMNT')) frame.classList.add('is-centered');
+        const imageRow = document.createElement('div');
+        const imageItems = photos.length ? photos : [{ alt: 'Illustration of ' + title }];
+
+        imageItems.forEach(photo => {
+          const image = document.createElement('img');
+          image.alt = photo.alt || 'Illustration of ' + title;
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          image.src = photo.src || gearIllustration(title, category);
+          image.addEventListener('error', () => {
+            image.src = gearIllustration(title, category);
+            frame.classList.add('is-illustration');
+          }, { once: true });
+
+          imageRow.append(image);
+        });
+
+        frame.append(imageRow);
+        if (!photos.length) {
+          frame.classList.add('is-illustration');
+          const note = document.createElement('figcaption');
+          note.className = 'gear-visual-note';
+          note.setAttribute('aria-hidden', 'true');
+          note.textContent = 'Illustration';
+          frame.append(note);
+        }
+        card.prepend(frame);
+      });
+    }
+
+    function filterGear(category) {
+      const cards = document.querySelectorAll('.gear-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Update button styling
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-jopGold text-jopBg shadow-md";
+        } else {
+          btn.className = "filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all text-gray-300 hover:text-white hover:bg-jopCard";
+        }
+      });
+
+      // Filter card visibility
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.classList.remove('hidden-card');
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
+    }
+
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    addGearImages();
+  </script>
+</body>
+</html>

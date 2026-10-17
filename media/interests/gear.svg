@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Gear</title>
+  <desc id="desc">A centered green mechanical gear on a dark, topographic background.</desc>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1">
+      <stop stop-color="#263d30"/>
+      <stop offset="1" stop-color="#101914"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#c6d2b8" stroke-opacity=".055"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="405" fill="url(#ground)"/>
+  <rect width="720" height="405" fill="url(#grid)"/>
+  <g fill="none" stroke="#9daf8d" stroke-opacity=".18" stroke-width="1.5">
+    <path d="M-25 110c73-52 140-45 203-8s102 39 158 8 112-57 177-30 122 46 231-14"/>
+    <path d="M-35 133c80-55 145-47 208-9s103 39 159 8 110-56 175-29 124 47 232-13"/>
+    <path d="M-40 297c71-45 138-50 202-15s109 36 167 4 109-48 174-22 128 38 231-12"/>
+    <path d="M-48 321c75-49 144-53 208-17s109 36 168 4 111-49 176-23 126 37 229-13"/>
+  </g>
+  <circle cx="360" cy="202" r="107" fill="#9daf8d" fill-opacity=".08"/>
+  <g transform="translate(276 118) scale(7)" fill="none" stroke="#c0ce9d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.15">
+    <path d="M12.22 2h-.44a2 2 0 0 0-1.99 1.72l-.18 1.28a7.9 7.9 0 0 0-1.73 1l-1.2-.5a2 2 0 0 0-2.48.9l-.22.38a2 2 0 0 0 .49 2.58l1 .78a8.1 8.1 0 0 0 0 2l-1 .78a2 2 0 0 0-.49 2.58l.22.38a2 2 0 0 0 2.48.9l1.2-.5a7.9 7.9 0 0 0 1.73 1l.18 1.28A2 2 0 0 0 11.78 22h.44a2 2 0 0 0 1.99-1.72l.18-1.28a7.9 7.9 0 0 0 1.73-1l1.2.5a2 2 0 0 0 2.48-.9l.22-.38a2 2 0 0 0-.49-2.58l-1-.78a8.1 8.1 0 0 0 0-2l1-.78a2 2 0 0 0 .49-2.58l-.22-.38a2 2 0 0 0-2.48-.9l-1.2.5a7.9 7.9 0 0 0-1.73-1l-.18-1.28A2 2 0 0 0 12.22 2z"/>
+    <circle cx="12" cy="12" r="3.5"/>
+  </g>
+  <path d="M205 202h-62m434 0h-62M360 54v-18m0 332v-18" fill="none" stroke="#b9c89a" stroke-opacity=".5" stroke-width="2"/>
+  <path d="M64 52h42M64 52v42M656 353h-42m42 0v-42" fill="none" stroke="#b9c89a" stroke-opacity=".42"/>
+  <text x="656" y="65" fill="#9daf8d" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="2" text-anchor="end">EQUIPMENT INDEX</text>
+</svg>
