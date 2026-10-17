@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-labelledby="title desc">
+  <title id="title">Swim, bike, run</title>
+  <desc id="desc">Three bold black illustrations representing a swimmer, cyclist, and runner.</desc>
+  <rect width="900" height="280" fill="#fff"/>
+  <g fill="none" stroke="#15191c" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke-width="11">
+      <path d="M28 194c23-12 48-12 71 0s48 12 71 0 48-12 71 0"/>
+      <path d="M28 221c23-12 48-12 71 0s48 12 71 0 48-12 71 0"/>
+      <path d="M83 166l27 9 20 20"/>
+      <circle cx="150" cy="162" r="11"/>
+      <path d="M238 184h40"/>
+      <circle cx="347" cy="202" r="42"/>
+      <circle cx="472" cy="202" r="42"/>
+      <path d="M347 202l52-67 45 67-72 0-25-49 64-5"/>
+      <path d="M399 135l-24-14h-31"/>
+      <circle cx="434" cy="93" r="10"/>
+      <path d="M434 105l-20 24 36 8 18 24"/>
+    </g>
+    <g stroke-width="19">
+      <path d="M622 224l35-51 42 13-18-48-34-25 47-28"/>
+      <circle cx="684" cy="51" r="15" fill="#15191c" stroke="none"/>
+      <path d="M754 223l30-48-7-56 34-17 20 35 29 3"/>
+      <path d="M790 119l-20 39 24 17"/>
+      <circle cx="803" cy="69" r="15" fill="#15191c" stroke="none"/>
+      <path d="M842 103l26 5 13-28"/>
+    </g>
+  </g>
+</svg>
