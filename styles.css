@@ -401,6 +401,11 @@ h1 {
   width: 100%;
 }
 
+.interest-jopathlon .interest-card-image {
+  background: #101813;
+  object-fit: contain;
+}
+
 .interest-card:hover .interest-card-image {
   transform: scale(1.025);
 }
