@@ -393,38 +393,45 @@ h1 {
 
 .interest-gear-wide {
   align-items: center;
-  flex-direction: row;
+  display: grid;
   grid-column: 1 / -1;
-  gap: clamp(18px, 3vw, 42px);
-  min-height: 210px;
-  padding: 28px clamp(24px, 4vw, 52px);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  justify-items: center;
+  min-height: 230px;
+  padding: 28px clamp(24px, 4vw, 52px) 14px;
 }
 
-.interest-gear-wide .interest-card-image {
-  aspect-ratio: 1;
-  flex: 0 0 clamp(120px, 16vw, 190px);
-  max-width: 190px;
-  object-fit: contain;
+.interest-gear-art {
+  align-self: center;
+  max-width: 910px;
+  width: 100%;
+}
+
+.interest-gear-art img {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .interest-gear-heading,
 .interest-gear-copy {
-  flex: 1;
   min-width: 0;
+  text-align: center;
 }
 
-.interest-gear-heading h3 {
-  font-size: clamp(1.6rem, 3vw, 2.35rem);
-  margin: 0;
+.interest-gear-copy {
+  align-self: end;
 }
 
 .interest-gear-copy > p {
   color: var(--muted);
-  margin-bottom: 16px;
+  margin: 0;
 }
 
 .interest-gear .interest-label {
-  margin-bottom: 8px;
+  margin: 0;
 }
 
 .interest-card-actions {
@@ -1253,23 +1260,14 @@ h1 {
   }
 
   .interest-gear-wide {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
     grid-column: auto;
-    padding: 22px;
+    padding: 22px 22px 14px;
   }
 
-  .interest-gear-wide .interest-card-image {
-    aspect-ratio: 1;
-    flex: initial;
-    max-width: 150px;
-    width: 100%;
-  }
-
-  .interest-gear-heading,
-  .interest-gear-copy {
-    flex: initial;
-    text-align: center;
+  .interest-gear-art {
+    max-width: 100%;
   }
 
   .interest-grid {
@@ -1964,10 +1962,10 @@ h3 {
   border: 1px solid rgba(198, 167, 124, 0.55);
   border-radius: 50%;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.28);
-  height: 58px;
+  height: 72px;
   object-fit: cover;
   object-position: center;
-  width: 58px;
+  width: 72px;
 }
 
 .site-header .brand-signature {
@@ -2013,8 +2011,8 @@ h3 {
   }
 
   .site-header .brand-image {
-    height: 46px;
-    width: 46px;
+    height: 54px;
+    width: 54px;
   }
 
   .site-header .brand-name {
