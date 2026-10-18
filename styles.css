@@ -414,8 +414,13 @@ h1 {
 
 .interest-gear-art img {
   display: block;
+  filter: saturate(0.62) brightness(0.78);
   height: auto;
   width: 100%;
+}
+
+.interest-gear-art img:nth-child(2) {
+  filter: saturate(0.48) brightness(0.66);
 }
 
 .interest-gear-heading,
