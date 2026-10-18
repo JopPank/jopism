@@ -459,15 +459,18 @@ const renderTeamScoreboard = (list, events) => {
     const teams = [...competition.competitors].sort((first, second) =>
       first.homeAway === 'away' ? -1 : second.homeAway === 'away' ? 1 : 0
     );
+    const teamScores = document.createElement('ul');
+    teamScores.className = 'sports-team-scores';
     teams.forEach((team) => {
       const teamName = team.team?.displayName || team.team?.abbreviation;
       if (!teamName) {
         throw new Error('A scoreboard entry is missing its team name.');
       }
-      game.append(
+      teamScores.append(
         createScoreRow(teamName, team.score ?? '—', 'sports-team-score')
       );
     });
+    game.append(teamScores);
 
     const status = document.createElement('p');
     status.className = 'sports-event-status';

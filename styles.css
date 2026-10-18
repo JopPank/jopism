@@ -590,6 +590,12 @@ h1 {
   padding: 0;
 }
 
+.sports-team-scores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .sports-game {
   border-bottom: 1px solid var(--border);
   padding: 12px 0 10px;
