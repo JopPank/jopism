@@ -405,6 +405,9 @@ h1 {
 
 .interest-gear-art {
   align-self: center;
+  display: grid;
+  gap: clamp(8px, 1.5vw, 18px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   max-width: 910px;
   width: 100%;
 }
@@ -431,7 +434,13 @@ h1 {
 }
 
 .interest-gear .interest-label {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
   margin: 0;
+  text-transform: none;
 }
 
 .interest-card-actions {
@@ -1268,6 +1277,11 @@ h1 {
 
   .interest-gear-art {
     max-width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .interest-gear-art img:last-child {
+    grid-column: 2;
   }
 
   .interest-grid {
