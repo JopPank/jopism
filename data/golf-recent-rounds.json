@@ -1,5 +1,18 @@
 [
   {
+    "date": "10/19/2026",
+    "course": "Kingsway Park Golf and CC",
+    "score": 78,
+    "toPar": "+6",
+    "holes": 18,
+    "strokesGained": {
+      "driving": -1.0,
+      "approach": 1.0,
+      "shortGame": 0.1,
+      "putting": 0.9
+    }
+  },
+  {
     "date": "10/12/2026",
     "course": "Gatineau Golf & CC",
     "score": 77,
@@ -140,19 +153,6 @@
       "approach": -1.8,
       "shortGame": -1.5,
       "putting": 2.7
-    }
-  },
-  {
-    "date": "08/28/2026",
-    "course": "Club de Golf Les Vieux Moulins",
-    "score": 78,
-    "toPar": "+7",
-    "holes": 18,
-    "strokesGained": {
-      "driving": 0.5,
-      "approach": -5.8,
-      "shortGame": 3.0,
-      "putting": 1.5
     }
   }
 ]
