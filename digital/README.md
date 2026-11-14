@@ -11,6 +11,7 @@ French is the default (`index.html`); English is available at `en.html`.
 The EN/FR navigation links switch between the complete pages without
 JavaScript. Keep both versions in sync when changing content. All contact
 buttons in each language open `mailto:info@jopism.com`.
+The header wordmark is bundled in `assets/` as WebP with a PNG fallback.
 
 The page introduces the independent side project, identifies Marché Laflamme
 as a first client project in progress without results or screenshots, and
